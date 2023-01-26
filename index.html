@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Préprocesseurs CSS</title>
+    <title>Rendre son site plus performant</title>
 
     <link rel="stylesheet" href="dist/reset.css">
     <link rel="stylesheet" href="dist/reveal.css">
@@ -16,1362 +16,652 @@
   <body>
     <div class="reveal">
       <div class="slides">
-         <section data-background-color="rgb(19, 64, 116)" style="color: #FFF;">
-          <div style="padding-top: 1em; padding-bottom: 1em;">
-            <h1 style="color: #FFF;">Les préprocesseurs CSS</h1>
-            <h4 style="color: #FFF;">(et pourquoi c'est génial)</h4>
-            <img src="images/pale-enjoying-remote-work.png" alt="" width="300">
+         <section data-background-color="rgb(57,155,163)" style="color: #FFF;">
+          <div style="padding-top: 0.8em; padding-bottom: 0.8em;">
+            <h1 style="color: #FFF;">Rendre son site plus performant 🚀</h1>
+            <img src="images/jogging.svg" alt="" width="400">
           </div>
-          <p style="padding-top: 20px;">
+          <p>
             <small>Katia Moreira</small><br>
-            <small>MMI 2 - <a href="https://www.youtube.com/watch?v=Ff1Rq6mi3Lg" target="_blank">08/03/2022</a> 🦸‍♀️</small><br>
+            <small>MMI 2 - 27/01/2023</small><br>
           </p>
-        </section>
-        <section>
-          <h3 class="header-title">Présentation</h3>
-          <div>
-            <ul>
-              <li>
-                Katia Moreira<br>
-                DUT SRC 2010-2012<br>
-                IMAC 2012-2013<br>
-                Gobelins 2013-2015
-              </li>
-              <li>From 👩‍🎓 to 👩‍🏫</li>
-              <li>
-                Intégratrice web / développeuse front-end<br> chez <a href="https://happyculture.coop/" target="_blank">Happyculture</a><br>
-                <img src="images/happyculture_logo.png" alt="" width="80">
-              </li>
-            </ul>
-          </div>
         </section>
         <section>
           <h3 class="header-title">Plan du cours</h3>
 
           <ol>
-            <li>📋 Introduction aux préprocesseurs</li>
-            <li>🔎 Revue des fonctionnalités du préprocesseur SASS</li>
-            <li>👌 Bonnes pratiques</li>
+            <li>📏 La performance et comment la mesurer</li>
+            <li>📋 Les différentes métriques</li>
+            <li>💡 Comment améliorer les perfs</li>
+            <li>🧠 Entre réalité et perception</li>
           </ol>
         </section>
-        <section data-background-color="rgb(19, 64, 116)">
-          <h2 class="slide-title" style="color: #FFF;">1. Introduction aux préprocesseurs</h2>
+        <section data-background-color="rgb(57,155,163)" class="full">
+          <h2 class="slide-title centered" style="color: #FFF;">1. La performance et comment la mesurer</h2>
         </section>
         <section>
-          <h3 class="header-title">Un préprocesseur c'est quoi ?</h3>
+          <h3 class="header-title">La performance et comment la mesurer</h3>
 
           <div>
             <ul>
-              <li>Outil permettant d'ajouter des fonctionnalités à CSS</li>
-              <li style="position: relative;">Code d'entrée &#8594; 🤖 &#8594; Code de sortie<span class="fragment" style="position: absolute; top: calc(100% + 10px); right: 0; width: 300px; font-weight: 700;"> ↪️ code intelligible pour le navigateur</span></li>
+              <li>Performance = rapidité avec laquelle votre site s'affiche 🚀</li>
+              <li>Performance 💻 front-end vs performance ⚙️ back-end</li>
             </ul>
+            <img src="images/frontend_backend.png" alt="" width="600">
           </div>
-          <aside class="notes">
-            C'est un outil qui permet d'ajouter des fonctionnalités à CSS
-            On écrit notre code dans la syntaxe du préprocesseur (un peu du CSS amélioré) et ce code est compilé en code CSS
-            Code d'entrée -> code de sortie
-          </aside>
         </section>
         <section>
-          <h3 class="header-title">Un préprocesseur c'est quoi ?</h3>
+          <h3 class="header-title">La performance et comment la mesurer</h3>
 
           <div>
             <ul>
-              <li><strong>pré</strong>processeurs / <strong>post</strong>processeurs</li>
-              <li>
-                <strong>pré</strong>processeur :<br>
-                Langage du préprocesseur (.scss, .sass, .less...) &#8594; 🤖 &#8594; .css
-              </li>
-              <li>
-                <strong>post</strong>processeur :<br>
-                .css &#8594; 🤖 &#8594; .css
-              </li>
+              <li>🎯 <strong>Objectif : </strong> faire en sorte que le site s'affiche le plus rapidement possible</li>
+              <li>Pour améliorer la performance de son site il faut déjà commencer par la <strong>mesurer</strong></li>
             </ul>
           </div>
-          <aside class="notes">
-            Il existe également des postprocesseur.<br>
-            Comme son nom l'indique il va agir après.<br>
-            On écrit son code en CSS et le postprocesseur repasse derrière. (par exemple pour ajouter automatiquement des préfixes)
-          </aside>
         </section>
         <section>
-          <h3 class="header-title">Un préprocesseur c'est quoi ?</h3>
+          <h3 class="header-title">La performance et comment la mesurer</h3>
+          <h4>Les différents outils de mesure</h4>
 
-          <p>Les postprocesseurs sont toujours utilisés mais souvent inclus au sein de tâches automatisées (on verra ça la prochaine fois...)</p>
-        </section>
-        <section>
-          <h3 class="header-title">Un préprocesseur c'est quoi ?</h3>
-
-          <p>Les préprocesseurs sont eux aujourd'hui indispensables pour améliorer la productivité 🚀 et la maintenabilité 🛠 d'un site.</p>
-        </section>
-        <section>
-          <h3 class="header-title">Un préprocesseur c'est quoi ?</h3>
-
-          <div>
-            <img src="images/less-logo.png" alt="less" width="200" style="margin: 1em;">
-            <img src="images/stylus-logo.svg" alt="stylus" width="200" style="margin: 1em;">
-            <img src="images/sass-logo.svg" alt="sass" width="200" style="margin: 1em;">
-          </div>
-        </section>
-        <section>
-          <h3 class="header-title">Un préprocesseur c'est quoi ?</h3>
-
-          <div>
-            <img src="images/sass-logo.svg" alt="sass" width="200" style="margin: 1em;"><br>
-            <p>Préprocesseur le plus répandu 🥇</p>
-          </div>
-        </section>
-        <section>
-          <h3 class="header-title">Les différentes syntaxes de SASS</h3>
-
-          <div class="fragment">
-            <p>SASS : nom de l'<strong>outil</strong> qui possède 2 syntaxes :</p>
+          <div style="padding-top: 50px;">
             <ul>
-              <li>.scss et .sass</li>
+              <li><a href="https://pagespeed.web.dev/">PageSpeed Insights</a> : outil de performance proposé par Google (existe aussi en extension navigateur)</li>
+              <li><a href="https://www.webpagetest.org/">WebPageTest</a></li>
+              <li><a href="https://gtmetrix.com/">GTmetrix</a></li>
+              <li>Console navigateur</li>
             </ul>
           </div>
         </section>
         <section>
-          <h3 class="header-title">Les différentes syntaxes de SASS</h3>
-
-          <div>
-            <p>La syntaxe SASS est plus éloignée de la syntaxe originelle CSS</p>
-            <ul class="is-block">
-              <li>
-                En SASS (fichier .sass)<br>
-                <pre><code data-trim>
-                .error
-                  border: solid #FF0000 1px;
-                  color: #FF0000;
-                </code></pre>
-              </li>
-              <li>
-                En SCSS (fichier .scss)<br>
-                <pre><code class="css" data-trim>
-                .error {
-                  border: solid #FF0000 1px;
-                  color: #FF0000;
-                }
-                </code></pre>
-              </li>
-            </ul>
-          </div>
-        </section>
-        <section>
-          <h3 class="header-title">Les différentes syntaxes de SASS</h3>
-
-          <div>
-            <p class="is-transparent">La syntaxe SASS est plus éloignée de la syntaxe originelle CSS</p>
-            <ul class="is-block">
-              <li class="is-transparent">
-                En SASS (fichier .sass)<br>
-                <pre><code data-trim>
-                .error
-                  border: solid #FF0000 1px;
-                  color: #FF0000;
-                </code></pre>
-              </li>
-              <li>
-                En SCSS (fichier .scss) ✅<br>
-                <pre><code class="css" data-trim>
-                .error {
-                  border: solid #FF0000 1px;
-                  color: #FF0000;
-                }
-                </code></pre>
-              </li>
-            </ul>
-          </div>
-        </section>
-        <section>
-          <h3 class="header-title">Mais finalement SASS à quoi ça sert ? 🤔</h3>
-
-          <ul>
-            <li>Faire du nesting</li>
-            <li>Utiliser des conditions if/else</li>
-            <li>Faire des boucles</li>
-            <li>Utiliser des variables</li>
-            <li>Importer des fichiers</li>
-          </ul>
-          <p class="fragment">&#8594; utiliser les fonctionnalités d'un langage de programmation en CSS 👍</p>
-        </section>
-        <section>
-          <h3 class="header-title">Comment ça marche ?</h3>
-
-          <p style="font-size: 0.7em;">Le compilateur transforme le code SCSS en CSS. On peut utiliser :</p>
-
-          <ul style="font-size: 0.7em;">
-            <li>une application graphique<br><small>Prepros, Codekit, Koala, Scout...</small></li>
-            <li>Un plugin présent dans notre éditeur de code <br><small>Sass autocompile (Atom), Sass Sublime (Sublime Text), Live Sass Compiler (VSCode)</small></li>
-            <li>Un taskrunner ou module bundler<br><small>gulp, grunt, webpack...</small></li>
-            <li>Un outil en ligne<br><small>Sassmeister</small></li>
-            <li>La ligne de commande</li>
-          </ul>
-        </section>
-        <section class="full" data-background-color="rgb(19, 64, 116)">
-          <div class="centered">
-            <h2 class="slide-title" style="color: #FFF;">Place à la pratique ! 🎉</h2>
-          </div>
-        </section>
-        <section>
-          <h3 class="header-title">Place à la pratique ! 🎉</h3>
-
-          <ul>
-           <li>Installer SASS : <a href="https://sass-lang.com/">https://sass-lang.com/</a></li>
-          </ul>
-          <aside class="notes">
-            npm install -g sass
-            sass --version
-          </aside>
-          </aside>
-        </section>
-        <section>
-          <h3 class="header-title">Place à la pratique ! 🎉</h3>
-
-          <div class="d-flex">
-            <div class="col-6">
-              <p>
-                <strong>Notre terrain de jeu :</strong><br>un portfolio simple en one page
-                <br>
-                <br>
-                <a href="https://we.tl/t-E4ZIISzSDZ">Télécharger le template</a>
-              </p>
-            </div>
-            <div class="col-6">
-              <img src="images/capture-portfolio.png" alt="" width="300">
-            </div>
-          </div>
-          <aside class="notes">
-            Renommer le fichier .css en .scss pour commencer à utiliser sass
-            lancer ensuite la commande sass --watch style.css style.scss
-          </aside>
-        </section>
-        <section data-background-color="rgb(19, 64, 116)">
-          <h2 style="color: #FFF;">2. Fonctionnalités de SASS</h2>
-        </section>
-        <section>
-          <h3 class="header-title">Variables</h3>
-          <p>$variable: &lt;value&gt;</p>
-
-          <div class="fragment">
-            <pre><code data-trim>
-              $main-color: #72958A;
-              $secondary-color: #C88F9F;
-              $sans-serif-family: 'Poppins', Arial, sans-serif;
-              $container-width: 1280px;
-            </code></pre>
-
-            <p class="fragment">On peut y stocker un nombre, une string, une couleur ou même une déclaration CSS en entier 🎉</p>
-          </div>
-        </section>
-        <section class="light">
-          <h3 class="header-title">Variables</h3>
-          <p><strong>Différences entre les variables CSS et SASS</strong></p>
-
-          <div>
-            <pre><code data-trim>
-              :root {
-                --main-color: #FFD73E;
-              }
-
-              .title {
-                color: var(--main-color);
-              }
-            </code></pre>
-          </div>
-        </section>
-        <section >
-          <h3 class="header-title">Variables</h3>
-          <p><strong>Différences entre les variables CSS et SASS</strong></p>
-
-          <ul>
-            <li>Les variables SASS sont compilées et ne sont pas visibles dans le code final. Les variables CSS sont directement interprétées par le navigateur</li>
-            <li>On peut faire varier la valeur des variables CSS</li>
-            <li>On peut y accéder depuis le JS</li>
-          </ul>
-          <p class="fragment">💡 En savoir plus : <a href="https://css-tricks.com/difference-between-types-of-css-variables/">https://css-tricks.com/difference-between-types-of-css-variables/</a></p>
-          <aside class="notes">
-            Je peux modifier une variable SASS en cours de route. Les éléments suivants utiliserons la nouvelle valeur<br>
-            mais les éléments précédents eux utiliseront toujours l'ancienne valeur. (aller sur sassmeister)
-          </aside>
-        </section>
-        <section>
-          <h3 class="header-title">Variables</h3>
-          <p><strong>Différences entre les variables CSS et SASS</strong></p>
-
-          <div>
-            <pre><code data-trim>
-              :root {
-                --container-width: 1280px;
-              }
-              
-              @media all and (min-width: 1500px) {
-                :root {
-                  --container-width: 1360px;
-                }
-              }
-            </code></pre>
-          </div>
-          <aside class="notes">
-            Je peux par exemple facilement redéfinir la largeur de mon conteneur en fonction de la largeur de l'écran
-          </aside>
-        </section>
-        <section>
-          <h3 class="header-title">Variables</h3>
-          <p><strong>Interpolation de variables</strong></p>
-
-          <div>
-            <pre><code data-trim class="scss">
-              .icon-#{$name} {
-                ...
-              }
-              // ---
-              $sidebar-width: 250px;
-
-              .main {
-                width: calc(100% - #{$sidebar-width});
-              }
-              // ---
-              $property: 'radius';
-              $value: 4px;
-
-              .block {
-                border-#{$property}: $value;
-              }
-            </code></pre>
-          </div>
-          <aside class="notes">
-            Interpolation = remplacer une variable par sa valeur<br>
-            Dans les fonctions CSS (calc, url)<br>
-            Les pseudo class (:nth-child())<br>
-            Dans un sélecteur
-          </aside>
-        </section>
-        <section>
-          <h3 class="header-title">@import</h3>
-          <div class="fragment">
-            <p><strong>Séparer notre code en plusieurs fichiers .scss</strong></p>
-
-            <div>
-              <pre><code data-trim class="scss">
-                @import '_variables.scss';
-                @import '_reset.scss';
-                @import '_fonts.scss';
-                @import '_layout.scss';
-                @import '_header.scss';
-                @import '_menu.scss';
-                @import '_hero.scss';
-                @import '_stats.scss';
-                @import '_projects.scss';
-                @import '_skills.scss';
-                @import '_contact.scss';
-              </code></pre>
-            </div>
-          </div>
-          <aside class="notes">Parler des at-rules</aside>
-        </section>
-        <section>
-          <h3 class="header-title">Imbrication</h3>
-
-          <div>
-            <pre><code data-trim class="scss">
-              // Code SASS
-              .site-header {
-                nav {
-                  ul {
-                    li {
-
-                    }
-                  }
-                }
-              }
-            </code></pre>
-            <pre><code data-trim class="css">
-              /* Rendu CSS */
-              .site-header nav ul li {
-                ...
-              }
-            </code></pre>
-          </div>
-          <aside class="notes">
-            Exemple avec le fichier hero.scss (strong dans hero__title)
-          </aside>
-        </section>
-        <section>
-          <h3 class="header-title">Imbrication</h3>
-
-          <div>
-            <pre><code data-trim class="scss">
-              // Code SASS
-              .site-header {
-                nav {
-                  @media screen and (min-width: 768px) {
-                    display: block;
-                  }
-                }
-              }
-            </code></pre>
-            <pre><code data-trim class="css">
-              /* Rendu CSS */
-              @media screen and (min-width: 768px) {
-                .site-header nav {
-                  display: block;
-                }
-              }
-            </code></pre>
-          </div>
-
-          <p class="fragment">Mais c'est génial ! 😃<br>
-          <span class="fragment">parfois...<span class="fragment">non 💩</span></span></p>
-          <aside class="notes">
-            Montrer à quel endroit dans notre code on pourrait l'utiliser (fichier hero.scss par exemple avec l'élément hero__title)
-          </aside>
-        </section>
-        <section>
-          <h3 class="header-title">Imbrication</h3>
-
-          <p>L'imbrication c'est cool MAIS on n'en abuse pas 🙅‍♀️</p>
-          <p>➡️ pas plus de 3 niveaux d'imbrication</p>
-          <aside class="notes">
-            Montrer site-header nav ul li a sur sassmeister
-          </aside>
-        </section>
-        <section>
-          <h3 class="header-title">Commentaires</h3>
-          <div>
-            <pre><code data-trim class="scss">
-              // Ce commentaire ne sera pas visible dans notre code CSS final.
-
-              /* Celui-ci en revanche oui. */
-            </code></pre>
-        </section>
-        <section>
-          <h3 class="header-title">Sélecteur &</h3>
-
-          <div>
-            <pre><code data-trim>
-              .menu__item {
-                a {
-                  &::after {
-                    content: '';
-                    display: block;
-                    width: 100%;
-                    height: 4px;
-                  }
-
-                  &.is-active::after,
-                  &:hover::after {
-                    background-color: $secondary-color;
-                  }
-                }
-              }
-            </code></pre>
-          </div>
-
-          <p class="fragment">"Reprend" le sélecteur parent</p>
-        </section>
-         <section>
-          <h3 class="header-title">Sélecteur &</h3>
-
-          <div>
-            <pre><code data-trim class="scss">
-              // Code SASS
-              .menu__item {
-                a {
-                  &::after {
-                    ...
-                  }
-                }
-              }
-            </code></pre>
-            <pre><code data-trim class="css">
-              /* Code CSS */
-              .menu__item a::after {
-                ...
-              }
-            </code></pre>
-          </div>
-        </section>
-        <section class="light">
-          <h3 class="header-title">Sélecteur &</h3>
-
-          <div>
-            <pre><code data-trim class="scss">
-              // Code SASS
-              a {
-                color: #000;
-
-                .blue-section & {
-                  color: #0000FF;
-                }
-              }
-            </code></pre>
-
-            <pre><code data-trim class="css">
-              /* Code CSS */
-              a {
-                color: #000;
-              }
-
-              .blue-section a {
-                color: #0000FF;
-              }
-            </code></pre>
-          </div>
-        </section>
-        <section>
-          <h3 class="header-title">@extend et %placeholder</h3>
-
-          <p style="font-size: 0.7em;"><strong>Permet à un sélecteur d'hériter des styles d'un autre</strong></p>
-
-          <div class="fragment" style="font-size: 0.7em;">
-            <pre><code data-trim>
-              // Code SASS
-              .notif {
-                position: fixed;
-                top: 0; left: 0;
-                width: 100%;
-                padding: 15px 0;
-                background-color:#8FCDFF;
-                color: #004074;
-              }
-
-              .notif-error {
-                @extend .notif;
-                background-color: #FFB4B4;
-                color: #740000;
-              }
-            </code></pre>
-          </div>
-        </section>
-        <section>
-          <h3 class="header-title">@extend et %placeholder</h3>
-
-          <p style="font-size: 0.7em;"><strong>Permet à un sélecteur d'hériter des styles d'un autre</strong></p>
-
-          <div style="font-size: 0.7em;">
-            <pre><code data-trim class="css">
-              /* Code CSS */
-              .notif, .notif-error {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                padding: 15px 0;
-                background-color: #8FCDFF;
-                color: #004074;
-              }
-              
-              .notif-error {
-                background-color: #FFB4B4;
-                color: #740000;
-              }
-            </code></pre>
-          </div>
-          <aside class="notes">
-            Expliquer, sans trop insister, que notif-error est ajouté à chaque endroit où notif apparait
-          </aside>
-        </section>
-        <section class="light">
-          <h3 class="header-title">@extend et %placeholder</h3>
-
-          <p style="font-size: 0.7em;"><strong>%placeholder</strong></p>
-
-          <div class="fragment" style="font-size: 0.7em;">
-            <pre><code data-trim>
-              // Code SASS
-              %notif {
-                position: fixed;
-                top: 0; left: 0;
-                width: 100%;
-                padding: 15px 0;
-                text-align: center;
-              }
-              
-              .notif-error {
-                @extend %notif;
-                background-color: #FFB4B4;
-                color: #740000;
-              }
-              
-              .notif-info {
-                @extend %notif;
-                background-color:#8FCDFF;
-                color: #004074;
-              }
-            </code></pre>
-          </div>
-        </section>
-        <section class="light">
-          <h3 class="header-title">@extend et %placeholder</h3>
-
-          <p style="font-size: 0.7em;"><strong>%placeholder</strong></p>
-
-          <div class="fragment" style="font-size: 0.7em;">
-            <pre><code data-trim class="css">
-              /* Code CSS */
-              .notif-info, .notif-error {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                padding: 15px 0;
-                text-align: center;
-              }
-              
-              .notif-error {
-                background-color: #FFB4B4;
-                color: #740000;
-              }
-              
-              .notif-info {
-                background-color: #8FCDFF;
-                color: #004074;
-              }
-            </code></pre>
-          </div>
-        </section>
-        <section>
-          <h3 class="header-title">@extend et %placeholder</h3>
-
-          <p><strong>Ce qu'il faut retenir ✍</strong></p>
-          <ul>
-            <li>Avec @extend on hérite des styles d'un sélecteur CSS</li>
-            <li>Avec un %placeholder c'est la même chose sauf que le code de la classe étendue n'est pas visible dans le CSS final (et donc pas utilisable dans le HTML)</li>
-          </ul>
-        </section>
-        <section>
-          <h3 class="header-title">mixin et conditions</h3>
-
-          <p>
-            <strong>Pour centrer un élément on utilise fréquemment le code suivant :</strong><br>
-          </p>
-
-          <div class="fragment">
-            <pre><code data-trim>
-              .stats-item {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              }
-            </code></pre>
-          </div>
-
-          <p style="font-size: 0.7em;" class="fragment">Si on centre un élément de la même façon, ailleurs dans notre site, on va devoir répéter ces 3 lignes de code à chaque fois 😕</p>
-        </section>
-        <section>
-          <h3 class="header-title">mixin et conditions</h3>
-
-          <p>
-            <strong>La mixin est là pour ça 🙌</strong><br>
-          </p>
-
-          <div class="fragment">
-            <pre><code data-trim class="scss">
-              @mixin center-flex {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              }
-            </code></pre>
-          </div>
-
-          <div class="fragment">
-            <pre><code data-trim class="scss">
-              .stats-item {
-                @include center-flex;
-              }
-            </code></pre>
-          </div>
-
-          <p style="font-size: 0.7em;" class="fragment">On peut même compliquer un peu notre mixin pour faire en sorte qu'elle puisse centrer des éléments horizontalement, verticalement <strong>ou</strong> les 2...</p>
-
-          <aside class="notes">Une mixin permet de définir des styles qui vont être réutilisés</aside>
-        </section>
-        <section>
-          <h3 class="header-title">mixin et conditions</h3>
-
-          <p style="font-size: 0.8em;">
-            <strong>On va utiliser les arguments et les conditions <br>(attention ça se complique un peu) 😉</strong><br>
-          </p>
-
-          <div class="fragment" class="scss">
-            <pre><code data-trim>
-              @mixin center-flex($type: null){
-                display: flex;
-
-                @if $type == 'x' {
-                  justify-content: center;
-                } @else if $type == 'y' {
-                  align-items: center;
-                } @else {
-                  align-items: center;
-                  justify-content: center;
-                }
-              }
-            </code></pre>
-          </div>
-        </section>
-        <section>
-          <h3 class="header-title">Mixins</h3>
-
-          <p><strong>Ce qu'il faut retenir ✍</strong></p>
-          <pre><code data-trim class="scss">
-            // Déclarer une mixin avec la at-rule @mixin
-            @mixin ma-mixin {
-              ...
-            }
-
-            // L'utiliser avec la at-rule @include
-            .selecteur {
-              @include ma-mixin;
-            }
-          </code></pre>
-        </section>
-        <section>
-          <h3 class="header-title">Conditions</h3>
-
-          <p><strong>Ce qu'il faut retenir ✍</strong></p>
-          <pre><code data-trim class="scss">
-           @if ...
-           @else if ...
-           @else ...
-          </code></pre>
-        </section>
-        <section>
-          <h3 class="header-title">Mixins et @extend</h3>
-
-          <p>⚠️ On peut parfois faire la même chose avec une mixin ou une règle @extend, mais le code produit n'est pas le même.</p>
-          <p class="fragment">Mixin duplique <strong>un ensemble de règles</strong> alors que @extend duplique le <strong>sélecteur</strong>.</p>
-          <aside class="notes">Montrer un exemple concret sur sassmeister</aside>
-        </section>
-        <section>
-          <h3 class="header-title">Mixins et @extend</h3>
-
-          <p><strong>Comment savoir si on doit utiliser une mixin ou une règle @extend ? 🤔</strong></p>
-          <p class="fragment">Vous avez besoin d'utiliser un ou des argument(s) ? ➡️ mixin</p>
-          <p class="fragment">mis à part ça... il n'y a pas de règle 🤷‍♀️</p>
-          
-        </section>
-        <section>
-          <h3 class="header-title">Mixins et @extend</h3>
-          <img src="images/oc-logo.png" alt="" style="width: 50px; margin: 0;">
-          <p><em>“ La différence principale entre les mixins et les extensions est qu’avec les mixins vous obtenez des règles dupliquées, alors qu’avec les extensions, vous obtenez des sélecteurs dupliqués. ”</em></p>
+          <h3 class="header-title">La performance et comment la mesurer</h3>
+          <h4>Les différents outils de mesure : outils en ligne</h4>
 
           <figure>
-            <img src="images/oc-extend-mixin.png" alt="">
-            <figcaption><small>Le point de vue (assez catégorique) d'OpenClassrooms</small></figcaption>
+            <img src="images/test-perf.png" alt="" width="500">
+            <figcaption style="font-size: 0.42em;">Test de performance avec le site lemonde.fr sur PageSpeed Insights</figcaption>
           </figure>
 
-          <p style="padding-top: 10px;"><small>Un autre point de vue : <a href="https://vanseodesign.com/css/sass-mixin-or-extend/">Sass: When To Use @mixin And When To Use @extend</a></small></p>
-
-          <!-- On peut montrer le code suivant pour montrer 1 qu'on ne peut pas faire un extend dans un @media et 2 que le @extend déplace le sélecteur
-          @mixin color-red {
-              color: red;
-          }
-
-          .red {
-              color: red;
-          }
-
-          .text1 {
-              @include color-red;
-          }
-
-          .text2 {
-              @extend .red;
-          }
-          Règles dupliquées = DRY -->
-        </section>
-        <section>
-          <h3 class="header-title">Boucles</h3>
-
-          <p style="font-size: 0.8em;">
-            <strong>Avec SASS on peut également faire des boucles for <br>(et oui ça peut être utile)</strong>
-          </p>
-
-          <div class="fragment">
-            <pre><code data-trim class="scss">
-              // Code SASS
-              @for $i from 1 through 3 {
-                ul:nth-child(#{$i}) {
-                  top: 10px * $i;
-                }
-              }
-            </code></pre>
-          </div>
-          <div class="fragment">
-            <pre><code data-trim  class="scss">
-              /* Code CSS */
-              ul:nth-child(1) {
-                top: 10px;
-              }
-
-              ul:nth-child(2) {
-                top: 20px;
-              }
-
-              ul:nth-child(3) {
-                top: 30px;
-              }
-            </code></pre>
-          </div>
-        </section>
-        <section>
-          <h3 class="header-title">Boucles</h3>
-
-          <p><strong>Ce qu'il faut retenir ✍</strong></p>
-          <pre><code data-trim class="scss">
-          @for $i from 1 through 3 {
-            // Boucle qui fait varier $i à 1, 2 puis 3
-          }
-
-          @for $i from 1 to 3 {
-            //  Boucle qui fait varier $i à 1 puis 2
-          }
-          </code></pre>
-        </section>
-        <section class="light">
-          <h3 class="header-title">Fonctions</h3>
-
-          <p>
-            <strong>Une fonction se présente comme une mixin sauf qu'elle ne génère pas des règles CSS mais nous retourne une valeur</strong>
-
-            <div class="fragment">
-              <pre><code data-trim>
-                @function twice($value) {
-                  $result: $value * 2;
-
-                  @return $result;
-                }
-
-                .block {
-                  width: twice(200) + px;
-                }
-              </code></pre>
-            </div>
-          </p>
-        </section>
-        <section>
-          <h3 class="header-title">Fonctions</h3>
-
-          <p><strong>Ce qu'il faut retenir ✍</strong></p>
-          <pre><code data-trim class="scss">
-            // Déclarer une fonction avec la at-rule @function
-            @function ma-fonction($arg) {
-              $result: ...
-
-              // Retourner un résultat avec la at-rule @return
-              @return $result;
-            }
-
-            // Utiliser la fonction
-            .selecteur {
-              width: ma-fonction(200);
-            }
-          </code></pre>
-        </section>
-        <section>
-          <h3 class="header-title">Fonctions SASS</h3>
-
-          <div>
-            <p><strong>Ensemble de fonctions contenues <br>dans différents modules pré-existants :</strong></p>
-            <ul>
-              <li>sass:color<span class="fragment"> ✅</span></li>
-              <li>sass:list</li>
-              <li>sass:map<span class="fragment"> ✅</span></li>
-              <li>sass:math<span class="fragment"> ✅</span></li>
-              <li>sass:meta</li>
-              <li>sass:selector</li>
-              <li>sass:string</li>
-            </ul>
-          </div>
-        </section>
-        <section>
-          <h3 class="header-title">Fonctions SASS</h3>
-
-          <div>
-            <p>sass:color</p>
-            <pre><code data-trim class="scss">
-            // Code à inclure au tout début d'un fichier sass
-            @use 'sass:color';
-
-            .block {
-              color: color.scale(#e1d7d2, $lightness: -30%); // darken
-            }
-            .block2 {
-              color: color.scale(#e1d7d2, $lightness: 30%); // lighten
-            }
-
-            // Retourne la luminosite d'une couleur (de 0% à 100%)
-            color.lightness(#e1d7d2);
-
-            // Fonctions globales
-            .block3 {
-              color: rgba(#FF0000, 0.5);
-            }
-            </code></pre>
-          </div>
           <aside class="notes">
-            Ajouter un effet au hover sur les barres de compétences (lightness -30 par exemple)
-            Expliquer l'historique du sass module system (qui n'existait pas auparavant)
+            tester le site sur les 3 outils
           </aside>
         </section>
         <section>
-         <h3 class="header-title">Fonctions SASS</h3>
+          <h3 class="header-title">La performance et comment la mesurer</h3>
+          <h4>Les différents outils de mesure : la console navigateur</h4>
 
+          <figure>
+            <img src="images/test-perf-console.png" alt="" width="600">
+            <figcaption style="font-size: 0.42em;">Test de performance avec le site lemonde.fr via l'onglet "Performance" de la console</figcaption>
+          </figure>
+
+          <aside class="notes">
+            tester le site dans l'onglet Performance, cocher Screenshots / captures d'écran et Web Vitals / signaux web
+            montrer également l'onglet réseau et le fait qu'il permet de voir le chargement des éléments / repérer un élément lourd
+            dans le sélecteur "No throttling" montrer qu'on peut changer la vitesse de connexion
+          </aside>
+        </section>
+        <section data-background-color="rgb(57,155,163)" class="full">
+          <h2 class="slide-title centered" style="color: #FFF;">2. Les différentes métriques</h2>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>FCP - First Contentful Paint</h4>
+          <p><small>Temps avant l'apparition du premier élément</small></p>
           <div>
-            <p>sass:math</p>
-            <pre><code data-trim class="scss">
-              @use 'sass:math';
-
-              // Retourne un nombre aléatoire entre 1 et 10
-              math.random(10);
-
-              // Arrondi à l'entier inférieur
-              math.floor(2.5);
-
-              math.ceil(4.2);
-              math.max(1px, 4px);
-              math.$pi;
+            <img src="images/fcp.png" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>FCP - First Contentful Paint</h4>
+          <p><small>Temps avant l'apparition du premier élément</small></p>
+          <div>
+            <img src="images/fcp-score.svg" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>LCP - Largest Contentful Paint</h4>
+          <p><small>Temps avant l'apparition de l'élément le plus grand</small></p>
+          <div>
+            <img src="images/fcpvslcp2.png" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>LCP - Largest Contentful Paint</h4>
+          <p><small>Temps avant l'apparition de l'élément le plus grand</small></p>
+          <div>
+            <img src="images/fcpvslcp.png" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>LCP - Largest Contentful Paint</h4>
+          <p><small>Temps avant l'apparition de l'élément le plus grand</small></p>
+          <div>
+            <img src="images/lcp-score.svg" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>CLS - Cumulative Layout Shift</h4>
+          <p><small>Indicateur qui mesure le déplacement des éléments <br>de la page lors du chargement</small></p>
+          <div>
+            <video controls width="500">
+              <source src="videos/cls-demo.webm" type="video/webm">
+            </video>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>CLS - Cumulative Layout Shift</h4>
+          <p><small>Indicateur qui mesure le déplacement des éléments <br>de la page lors du chargement</small></p>
+          <div>
+            <img src="images/cls-score.svg" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>FID - First Input Delay</h4>
+          <p><small>Temps de réaction suite à une interaction de l'utilisateur</small></p>
+          <div>
+            <img src="images/fid-score.svg" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>FID - First Input Delay</h4>
+          <p><small>Temps de réaction suite à une interaction de l'utilisateur</small></p>
+          <div>
+            <ul>
+              <li>A ne pas confondre avec le <strong>TTI</strong> (Time To Interactive)</li>
+              <li>Le TTI est le délai au bout duquel le site peut répondre à une action de l'utilisateur (on peut cliquer sur un bouton ou un lien par exemple)</li>
+              <li>Il doit idéalement être inférieur à <strong>5 secondes</strong></li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>Les Core Web Vitals</h4>
+          <p><small>Pris en compte dans les résultats de recherche Google depuis juin 2021</small></p>
+          <div>
+            <img src="images/core-web-vitals.png" width="700" alt="">
+          </div>
+          <aside class="notes">
+            “Core Web Vitals” est une initiative de Google, représentant un ensemble de mesures visant à quantifier l'expérience des sites web, et identifier des opportunités d'amélioration.
+            Utilisé par google pour le classement du site dans les résultats de recherche
+          </aside>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>Les Core Web Vitals</h4>
+          <div>
+            <img src="images/test-perf-console-vitals.png" width="700" alt="">
+          </div>
+        </section>
+        <section data-background-color="rgb(57,155,163)" class="full">
+          <h2 class="slide-title centered" style="color: #FFF;">3. Comment améliorer les perfs</h2>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <h4>Poids de la page HTML</h4>
+          <div>
+            <ul>
+              <li>Diminuer la taille du HTML de la page</li>
+              <li>Limiter la profondeur du DOM</li>
+              <li>Attention à certains frameworks/CMS qui génèrent le markup</li>
+            </ul>
+          </div>
+          <aside class="notes">
+            Montrer le site de de omie.fr
+          </aside>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <h4>Les fonts</h4>
+          <div>
+            <ul>
+              <li>
+                Utiliser <code data-trim>font-display: swap;</code>
+              </li>
+            </ul>
+            <pre><code data-trim>
+              @font-face {
+                font-family: 'EBGaramond';
+                src:
+                  url('/fonts/EBGaramond/EBGaramond-Regular.woff2') format('woff2'),
+                  url'/fonts/EBGaramond/EBGaramond-Regular.woff') format('woff');
+                font-style: normal;
+                font-weight: normal;
+                font-display: swap;
+              }
             </code></pre>
           </div>
         </section>
         <section>
-          <h3 class="header-title">Fonctions SASS</h3>
- 
-           <div>
-             <p>sass:map</p>
-             <pre><code data-trim class="scss">
-              @use 'sass:map';
-
-              $icons: (
-                music: ‘\f001’,
-                search: ‘\f002’,
-                heart: ‘\f003’
-              );
-              @each $name, $value in $icons {
-                .icon-#{$name}::before {
-                  content: $value;
-                }
-              }
-             </code></pre>
-           </div>
-         </section>
-         <!--<div>A montrer si j'ai le temps :)
-          @use 'sass:map';
-
-          $font-sizes: (
-            text: (
-              mobile: 14px,
-              tablet: 16px,
-              desktop: 18px
-            ),
-            h1: (
-              mobile: 42px,
-              tablet: 52px,
-              desktop: 62px
-            ),
-            h2: (
-              mobile: 20px,
-              tablet: 22px,
-              desktop: 24px
-            )
-          );
-
-          $major-breakpoints: (mobile, tablet, desktop);
-
-          $mqs: (
-            tablet: 'min-width: 768px',
-            desktop: 'min-width: 1024px'
-          );
-
-          @mixin set-font-sizes($type: text) {
-            @each $device in $major-breakpoints {
-                @if map.has-key($mqs, $device) {
-                  @media all and (map.get($mqs, $device)) {
-                    font-size: map.get(map.get($font-sizes, $type), $device);
-                  }
-                } @else {
-                  font-size: map.get(map.get($font-sizes, $type), $device);
-                }
-            }
-          }
-
-          h1 {
-              @include set-font-sizes(h1);
-          }
-
-          h2 {
-              @include set-font-sizes(h2);
-          }
-
-          body {
-              @include set-font-sizes(text);
-          }
-        </div>-->
-        <section class="full" data-background-color="rgb(19, 64, 116)">
-          <div class="centered">
-            <h2 style="color: #FFF;">Exercices 🤓</h2>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <h4>Les fonts</h4>
+          <div>
+            <ul>
+              <li>
+                Utiliser <code data-trim>font-display: swap;</code> (FCP, LCP)
+              </li>
+            </ul>
+            <img src="images/swap.webp" alt="">
           </div>
         </section>
         <section>
-          <h3 class="header-title">Exercice 1 🤓</h3>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <h4>Les ressoures tiers</h4>
+          <div>
+            <ul>
+              <li>Eviter de dépendre de serveurs tiers</li>
+              <li>Google Fonts, cdn</li>
+            </ul>
+            <br>
+            <img src="images/Google_Fonts.png" alt="" width="300">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <h4>Code CSS et JS</h4>
+          <div>
+            <ul>
+              <li>Minifier le CSS et le JS</li>
+              <li>Ne pas charger de scripts inutiles</li>
+              <li>Utiliser <a href="https://www.npmjs.com/package/webpack-bundle-analyzer">webpack-bundle-analyzer</a></li>
+              <li>⚠️ Attention aux scripts de tracking</li>
+            </ul>
+          </div>
+          <aside class="notes">
+            Parler du fait qu'il vaut mieux diviser au maximum pour ne charger que ce qui est utile pour chaque page.
+            Et donc ce n'est pas forcément une bonne idée de n'avoir qu'un seul fichier JS minifié.
+            Ex si on a un formulaire de contact avec du JS.
+          </aside>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <h4>Async / Defer</h4>
+          <div>
+            <ul>
+              <li><strong>defer</strong> : ne pas bloquer le rendu HTML lors du chargement du script (bon pour le FCP)</li>
+              <li><strong>async</strong> : charger les fichiers JS de façon asynchrone (bon pour le temps de chargement global)</li>
+            </ul>
+          </div>
+          <aside class="notes">
+            defer = mettre le script en bas de page même s'il est dans le head
+            async est parfait pour les scripts tiers
+          </aside>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <h4>Optimiser les images</h4>
+          <div>
+            <ul>
+              <li>Faire attention aux dimensions de l'image</li>
+              <li class="fragment">Utiliser des responsive image</li>
+              <li class="fragment">
+                  Utiliser le bon format d'image
+                  <ul>
+                    <li>JPG pour les photos</li>
+                    <li>PNG pour les applats de couleur (type logo) ou images avec transparence</li>
+                    <li>SVG pour les images qui peuvent être décrites mathématiquement et affichées en différentes tailles</li>
+                  </ul>
+              </li>
+              <li class="fragment">
+                Utiliser un compresseur d'image
+                <ul>
+                  <li>mozjpeg</li>
+                  <li><a href="https://tinypng.com/">tinypng</a></li>
+                  <li><a href="https://jakearchibald.github.io/svgomg/">SVGO</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <h4>Optimiser les images</h4>
+          <div>
+            <ul>
+              <li>
+                Faire du lazyloading
+                <pre><code class="html" data-trim>
+                  <img src="image.jpg" loading="lazy" alt="">
+                </code></pre>
+              </li>
+              <li>
+                Indiquer la <code>width</code> et la <code>height</code> des images ou son <code>aspect-ratio</code> (pour le CLS)
+                <pre><code class="css" data-trim>
+                  img {
+                    aspect-ratio: 16/9;
+                  }
+                </code></pre>
+                <img src="images/caniuse-aspect-ratio.png" alt="" width="500" style="display: block; margin: 0 auto;">
+              </li>
+            </ul>
+          </div>
+          <aside class="notes">
+            Lazyloading : autrefois en JS, charge l'image quand on arrive à son niveau en scrollant
+          </aside>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <h4>Optimiser les images</h4>
+          <video controls width="800">
+            <source src="videos/cls-demo-images.webm" type="video/webm">
+          </video>
+        </section>
+        <section class="full" data-background-color="rgb(57,155,163)" class="full">
+          <div class="centered">
+            <h2 style="color: #FFF;">C'est l'heure de l'exercice 🤓</h2>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Exercice 🤓</h3>
           <p>
-            <strong>Objectif : créer une fonction qui éclairci / obscurci une couleur en fonction de sa luminosité</strong>
+            <strong>Objectif : trouver les corrections à effectuer pour améliorer les performances d'un site HTML/CSS</strong>
           </p>
 
+          <p><a href="https://github.com/kaymorey/html-template">Télécharger le code source du site</a></p>
+          <p>Vous pouvez trouver <strong>8 améliorations</strong> à faire</p>
+        </section>
+        <section>
+          <h3 class="header-title">Exercice 🤓</h3>
+          <p>
+            <strong>Objectif : trouver les corrections à effectuer pour améliorer les performances d'un site HTML/CSS</strong>
+          </p>
+          <ol style="font-size: 1.58rem;">
+            <li>Ne pas utiliser la font depuis Google Fonts mais utiliser font-face (ne pas oublier le font-display: swap)</li>
+            <li>On n'est un peu obligés de conserver le chargement de font awesome ici mais on peut utiliser async ou defer</li>
+            <li>Minifier les fichiers CSS</li>
+            <li>L'image hotel-mer.jpg est beaucoup trop grande, il faut la redimensionner</li>
+            <li>Idem pour l'image fort.jpg</li>
+            <li>Utiliser du svg pour l'image du logo</li>
+            <li>Utiliser la version jpg de l'image au-coeur-eau</li>
+            <li>Supprimer l'inclusion de jquery</li>
+          </ol>
+        </section>
+        <section data-background-color="rgb(57,155,163)" class="full">
+          <h2 class="slide-title centered" style="color: #FFF;">4. Entre réalité et perception</h2>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>La performance de votre site est cruciale</h4>
           <ul>
-            <li>Créer une fonction <em>hoverAlternateColor</em> qui prends en paramètre une couleur</li>
-            <li><strong>Si</strong> sa luminosité est inférieure à 25%, retourner une couleur 20% plus claire</li>
-            <li><strong>Sinon</strong> retourner une couleur 20% plus sombre</li>
-            <li>Montrer un exemple d'utilisation de la fonction</li>
-            <li>
-              Utiliser les fonctions SASS suivantes :
-              <div style="padding-top: 10px;">
-                <pre style="width: 100%; margin: 0;"><code data-trim class="scss">
-                  color.scale($color, $lightness);
-                  color.lightness($color);
-                </code></pre>
-              </div>
-            </li>
+            <li><strong>53%</strong> des utilisateur·rice·s abandonnent un site qui met plus de 3 secondes à se charger sur mobile</li>
+            <li class="fragment">La <strong>capacité d'attention</strong> d'un être humain est passée de 12 secondes en 2000 à <strong>8 secondes</strong> en 2015 (c'est 9 pour un poisson rouge 🐟)</li>
           </ul>
         </section>
         <section>
-          <h3 class="header-title">Exercice 1 🤓</h3>
-
-          <p><strong>Code final</strong></p>
-          <div style="font-size: 0.78em;">
-            <pre><code data-trim class="scss">
-              @use 'sass:color';
-
-              @function hoverAlternateColor($color) {
-                $result: '';
-
-                @if (color.lightness($color) < 25%) {
-                  $result: color.scale($color, $lightness: 20%);
-                } @else {
-                  $result: color.scale($color, $lightness: -20%);
-                }
-
-                @return $result;
-              }
-
-              a {
-                color: #000;
-
-                &:hover {
-                  color: hoverAlternateColor(#000);
-                }
-              }
-            </code></pre>
-          </div>
-          <aside class="notes">Montrer qu'on peut l'utiliser sur .skill__value-inset</aside>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>La notion de temps</h4>
+          <ul>
+            <li>🕒 Le temps <strong>objectif</strong> (la mesure du temps en secondes, minutes etc)</li>
+            <li class="fragment">🧠 Le temps <strong>psychologique</strong> (le temps ressenti)</li>
+          </ul>
         </section>
         <section>
-          <h3 class="header-title">Exercice 2 🤓</h3>
-
-          <p>
-            <strong>Objectif : reproduire l'animation suivante</strong>
-
-            <video controls style="width: 65%; margin-top: 15px;">
-              <source src="videos/biosphere.mp4" type="video/mp4">
-            </video>
-          </p>
-        </section>
-        <section>
-          <h3 class="header-title">Exercice 2 🤓</h3>
-
-          <div class="d-flex" style="align-items: flex-start;">
-            <video controls loop style="width: 35%;">
-              <source src="videos/biosphere.mp4" type="video/mp4">
-            </video>
-            <div style="width: 65%;">
-              <ul style="padding-left: 15px;">
-                <li>Faire une boucle de 4 itérations</li>
-                <li>
-                  A chaque tour de boucle
-                  <ul>
-                    <li>Créer une fonction d'animation à l'aide de <strong>@keyframes</strong> qui utilise la fonction SASS <strong>random</strong></li>
-                    <li>Appliquer cette <strong>animation</strong> à l'élément de la boucle</li>
-                  </ul>
-                </li>
-                <li>Spoiler :</li>
-                <div>
-                  <pre style="width: 100%; margin: 0;"><code data-trim class="scss">
-                      @keyframes stats-item-animation {
-                        100% {
-                          transform: translate(math.random(10) + px, math.random(10) + px);
-                        }
-                      }
-                  </code></pre>
-                </div>
-              </ul>
-            </div>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>La notion de temps</h4>
+          <div>
+            <img src="images/perception-temps.png" alt="">
           </div>
         </section>
         <section>
-          <h3 class="header-title">Exercice 2 🤓</h3>
-
-          <p><strong>Code final</strong></p>
-          <div style="font-size: 0.78em;">
-            <pre><code data-trim class="scss">
-              @use 'sass:math';
-
-              @for $i from 1 through 4 {
-                @keyframes stats-item-animation-#{$i} {
-                  100% {
-                    transform: translate(math.random(21) + 9px, math.random(21) + 9px);
-                  }
-                }
-              
-                .stats-item:nth-child(#{$i}) {
-                  animation: stats-item-animation-#{$i} 2.6s infinite;
-                  animation-delay: $i * 0.2s;
-                  animation-direction: alternate;
-                }
-              }
-            </code></pre>
-          </div>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>Sur le web</h4>
+          <ul>
+            <li>Entre <strong>0 et 100ms</strong> : immédiat, délai non ressenti</li>
+            <li class="fragment"><strong>100ms</strong> : temps maximum de réaction à une interaction (FID)</li>
+            <li class="fragment"><strong>2 secondes</strong> : temps au bout duquel il doit se passer quelque chose (FCP)</li>
+            <li class="fragment"><strong>2 à 5 secondes</strong> : temps de chargement optimal</li>
+            <li class="fragment"><strong>5 à 10 secondes</strong> : risque de distraction et donc de perdre l'utilisateur</li>
+          </ul>
         </section>
         <section>
-          <h3 class="header-title">Exercice 2 🤓</h3>
-
-          <p><strong>Si on va un peu plus loin...</strong></p>
-          <div style="font-size: 0.78em;">
-            <pre><code data-trim class="scss">
-              @use 'sass:math';
-
-              @function getSign($randNumber) {
-                @if $randNumber == 1 {
-                  @return -1;
-                }
-              
-                @return 1;
-              }
-              
-              @for $i from 1 through 4 {
-                @keyframes stats-item-animation-#{$i} {
-                  100% {
-                    transform: translate((math.random(21) + 9px) * getSign(math.random(2)), (math.random(21) + 9px) * getSign(math.random(2)));
-                  }
-                }
-              
-                .stats-item:nth-child(#{$i}) {
-                  animation: stats-item-animation-#{$i} 2.6s infinite;
-                  animation-delay: $i * 0.2s;
-                  animation-direction: alternate;
-                }
-              }
-            </code></pre>
-          </div>
-        </section>
-        <section data-background-color="rgb(19, 64, 116)">
-          <h2 style="color: #FFF;">3. Bonnes pratiques</h2>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>📈 La perception n'est pas linéaire</h4>
+          <ul>
+            <li>Type et complexité de la tâche</li>
+            <li class="fragment">Expérience sur des tâches similaires</li>
+            <li class="fragment">Disposition de l'utilisateur·rice (fatigue, stress...)</li>
+          </ul>
         </section>
         <section>
-          <h3 class="header-title">Attention à la surimbrication</h3>
-
-          <div class="fragment">
-            <p><strong>Les risques : 💥</strong></p>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>🎮 Les facteurs sur lesquels on peut jouer</h4>
+          <ul>
+            <li>Stimulation (indices qui rappelent l'attente)</li>
+            <li class="fragment">Durée (réelle ou ressentie)</li>
+            <li class="fragment">Attention (occupation du cerveau à une tâche ou une autre)</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>Comment améliorer la perception de l'attente ?</h4>
+          <div>
             <ul>
-              <li>Fichier CSS lourd</li>
-              <li>Moins performant</li>
-              <li>Difficile à maintenir</li>
+              <li>🕒 Améliorer le temps objectif ✅</li>
+              <li class="fragment">⌛ Donner des indicateurs d'attente</li>
+              <li class="fragment">🕹️ Détourner l'attention</li>
+              <li class="fragment">🪄 Mentir à l'utilisateur·rice</li>
+            </ul>
+          </div>
+          <aside class="notes">
+            Indicateurs : Fournir une indication adaptée au type d’attente.
+            Détourner l'attention : Occuper la personne à une autre tâche que celle de l’attente.
+            Mentir : Lui faire croire qu’elle n’a pas besoin d’attendre
+          </aside>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>🚀 Les réponses immédiates</h4>
+          <div>
+            <ul>
+              <li>Survol, focus d'un élément</li>
+              <li>Action instantanée traitée en JS</li>
+            </ul>
+          </div>
+          <video controls>
+            <source src="videos/copy.mov" type="video/mp4">
+          </video>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>⏲️ Indiquer l'attente</h4>
+          <div>
+            <ul>
+              <li>Le spinner</li>
+              <li class="fragment">La barre de chargement</li>
+              <li class="fragment">Les faux contenus</li>
+              <li class="fragment">Les mots</li>
             </ul>
           </div>
         </section>
         <section>
-          <h3 class="header-title">Attention à la surimbrication</h3>
-          <img src="images/inception.jpg" style="width: 50%;" alt="">
-          <p>➡️ "Inception Rule" : pas plus de 3 niveaux d'imbrication</p>
-        </section>
-        <section>
-          <h3 class="header-title">mixins utiles</h3>
-
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>Le spinner, pour une attente courte</h4>
+          <img src="images/spinner.gif" alt="" width="150">
           <div>
             <ul>
-              <li>Gestion des fonts et tailles des textes</li>
-              <li>Centrage des éléments</li>
-              <li>Media queries</li>
+              <li>Idéal entre 2 et 8 secondes</li>
+              <li class="fragment">Ne pas afficher de spinner en dessous de 2 secondes</li>
+              <li class="fragment">Au delà de 8 secondes l’utilisateur·rice <br>perd sa capacité d’attention.</li>
             </ul>
-            <p class="fragment"><a href="https://gist.github.com/kaymorey/dc9a40a6b3b476a211f308e2deeebbc7">Mes fichiers de variables et mixins par défaut</a></p>
           </div>
+          <aside class="notes">
+            En dessous de 2 secondes, impression de bug visuel
+          </aside>
         </section>
         <section>
-          <h3 class="header-title">mixins utiles</h3>
-          <p>Librairie SASS : <a href="https://eduardoboucas.github.io/include-media">@include-media</a></p>
-
-          <pre><code data-trim class="scss">
-            $breakpoints: (phone: 320px, tablet: 768px, desktop: 1024px);
-
-            .block {
-              @include media(">phone", "<=tablet") {
-                width: 50%;
-              }
-            }
-          </code></pre>
-        </section>
-        <section>
-          <h3 class="header-title">Organisation des fichiers</h3>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>Des spinners originaux, pour une attente plus longue</h4>
+          <img src="images/original-spinner.jpeg" alt="" width="200">
+          <img src="images/original-spinner2.gif" alt="" width="200">
           <div>
-            <p><strong>Pattern 7-1</strong></p>
-            <pre><code data-trim>
-              scss/
-              |– abstracts/
-              |– base/
-              |– components/
-              |– layout/
-              |– pages/
-              |– themes/
-              |– vendors/
-              `– main.scss
-            </code></pre>
-            <p><a href="https://sass-guidelin.es/fr/#le-pattern-7-1">https://sass-guidelin.es/fr/#le-pattern-7-1</a></p>
+            <ul>
+              <li>Un effet original et travaillé peut <br>intriguer ou amuser l’utilisateur·rice</li>
+              <li>Permet d’augmenter un peu <br>le délai d’attente sans décourager.</li>
+            </ul>
           </div>
+          <aside class="notes">
+            En dessous de 2 secondes, impression de bug visuel
+          </aside>
         </section>
         <section>
-          <h3 class="header-title">Les composants : OOCSS</h3>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>Des spinners originaux, pour une attente plus longue</h4>
+          <img src="images/loading-cat.gif" alt="" width="400">
+          <img src="images/infinity.gif" alt="" width="400">
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>La barre de chargement, pour une attente quantifiable</h4>
+          <img src="images/loading.gif" alt="" width="400">
           <div>
-            <p><strong>OOCSS : Oriented Object CSS</strong></p>
-            <figure>
-              <img src="images/media-object.png" alt="">
-              <figcaption style="font-size: 0.6em;">Le media object, introduit par Nicole Sullivan en 2010</figcaption>
-            </figure>
+            <ul>
+              <li>Le traitement risque de durer plus de 8 secondes</li>
+              <li>La durée ou le nombre d'items à traiter est mesurable</li>
+              <li>On peut y ajouter une indication de pourcentage</li>
+            </ul>
           </div>
         </section>
         <section>
-          <h3 class="header-title">Les composants : OOCSS</h3>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>La barre de chargement, pour une attente quantifiable</h4>
+          <img src="images/loading-gmail.gif" alt="" width="300">
+          <img src="images/original-loading.gif" alt="" width="300"><br>
+          <img src="images/percentage-loading.gif" alt="" width="300">
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>Un indicateur proche</h4>
+          <ul>
+            <li>Pour qu’un indicateur ait du sens, il doit être proche de la zone activée par l’utilisateur·rice. </li>
+          </ul>
+          <video controls width="500">
+            <source src="videos/loading-btn.mp4" type="video/mp4">
+          </video>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>Les faux contenus ou le Skeleton screen</h4>
+          <img src="images/skeleton.webp" alt="" width="500">
           <div>
-            <p><strong>OOCSS introduit 2 grands principes :</strong></p>
-            <ol>
-              <li>
-                Séparation de la structure et de l’apparence<br>
-                <small>On utilise des classes, on ne cible pas des éléments HTML</small>
-              </li>
-              <li>
-                Séparation du conteneur et du contenu<br>
-                <small>On peut utiliser nos composants dans n'importe quel contexte</small>
-              </li>
-            </ol>
-          </div>
-
-          <div class="fragment">
-            <p><br><a href="https://getbootstrap.com/docs/4.4/components/">Bootstrap</a> repose par exemple sur OOCSS</p>
+            <ul>
+              <li>Permet de fournir du contenu au compte-gouttes</li>
+              <li>Le faux contenu peut servir à<br>
+                l’utilisateur·rice à se projeter et faciliter la<br>
+                phase de découverte.</li>
+            </ul>
           </div>
         </section>
         <section>
-          <h3 class="header-title">Les composants : OOCSS</h3>
-          <div>
-            <h3>Comment on fait ?</h3>
-            <p>
-              En amont du project on <strong>repère les éléments communs ou répétés dans nos pages 👀</strong> pour en faire des composants
-            </p>
-          </div>
-          <br><br>
-          <div>
-            <h3>A quoi ça sert ?</h3>
-            <p>A gagner en productivité 🚀 et en maintenabilité 🛠</p>
-          </div>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>Les faux contenus ou le Skeleton screen</h4>
+          <img src="images/skeleton-slack.webp" alt="" width="800">
         </section>
         <section>
-          <h3 class="header-title" style="margin: 0;">Les composants : OOCSS</h3>
-          <div style="position: relative; width: 32%; margin: 0 auto;">
-            <img style="max-width: 100%; max-height: 100%; margin: 0;" src="images/avea-vacances1.jpg" alt="">
-            <img class="fragment" style="width: 100%; max-width: 100%; max-height: 100%; margin: 0; position: absolute; top: 0; left: 0;" src="images/avea-vacances2.jpg" alt="">
-          </div>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>Les faux contenus ou le Skeleton screen</h4>
+          <video controls width="650">
+            <source src="videos/figma-loading.mp4" type="video/mp4">
+          </video>
         </section>
         <section>
-          <h3 class="header-title">Introduction à BEM</h3>
-
-          <div>
-            <p><strong>BEM : Block Element Modifier</strong></p>
-            <img src="images/bem.jpg" alt="">
-          </div>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>Expliquer pourquoi l'utilisateur doit attendre</h4>
+          <ul>
+            <li>Permet d’être explicite sur le processus</li>
+            <li>Donner des chiffres sert d’estimatif du temps restant</li>
+            <li>Permet de donner de la lecture</li>
+          </ul>
         </section>
         <section>
-          <h3 class="header-title">Introduction à BEM</h3>
-
-          <div>
-            <p><strong>BEM : Block Element Modifier</strong></p>
-            <img src="images/bem-element.jpg" alt="">
-            <p>.block__element--modifier</p>
-          </div>
-          <pre><code data-trim>
-            .search-form { }
-            .search-form__input { }
-            .search-form__btn { }
-            .search-form__btn--light { }
-          </code></pre>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>Expliquer pourquoi l'utilisateur doit attendre</h4>
+          <img src="images/loading-words.gif" alt="" width="600">
         </section>
         <section>
-          <h3 class="header-title">Introduction à BEM</h3>
-
-          <div>
-            <p><strong>BEM : Block Element Modifier</strong></p>
-          </div>
-          <pre><code data-trim class="scss">
-            .search-form {
-              &__input {
-                width: 200px;
-              }
-
-              &__btn {
-                background: blue;
-
-                &--light {
-                    background: white;
-                }
-              }
-            }
-          </code></pre>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>Détourner l'attention de l'attente</h4>
+          <ul>
+            <li>L'attente passe de passive à active</li>
+            <li>Action ludique, amusante ou utile</li>
+          </ul>
+          <img src="images/trex-chrome-game.png" alt="" width="600">
         </section>
         <section>
-          <h3 class="header-title">Compiler son SASS... et plus !</h3>
-
-          <div class="fragment">
-            <p>
-              <strong>Avec les taskrunners</strong>
-              <br>
-              <small>Grunt, gulp, brunch...</small>
-            </p>
-          </div>
-          <br>
-          <div class="fragment">
-            <p>
-              <strong>Avec un module bundler</strong>
-              <br>
-              <small>Webpack, browserify...</small>
-            </p>
-          </div>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>Détourner l'attention de l'attente</h4>
+          <img src="images/youtube.jpeg" alt="" width="750">
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>Mentir sur le temps d'attente</h4>
+          <ul>
+            <li>Fake it until you make it</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <h4>Mentir sur le temps d'attente</h4>
+          <video controls width="750">
+            <source src="videos/twitter.mov" type="video/mp4">
+          </video>
         </section>
         <section>
           <h3 class="header-title">Liens utiles</h3>
 
           <div>
-            <p>
-              <a href="https://sass-lang.com/">Site officiel de SASS</a>
-              <br>
-              <a href="https://sass-guidelin.es">Bonnes pratiques en SASS</a>
-              <br>
-              <br>
-              et pour aller plus loin :
-              <br>
-              <a href="https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">BEM - explication de la syntaxe d'Harry Roberts</a>
-              <br>
-              <a href="https://www.nicoespeon.com/fr/2013/05/plongee-au-coeur-de-oocss/">Plongée au coeur de l'OOCSS</a>
-            </p>
+            <p>Conférences</p>
+            <ul>
+              <li>
+                <a href="https://www.paris-web.fr/2019/conferences/performance-il-se-passe-quoi-apres-le-backend.php">Performance : il se passe quoi après le backend ?</a>
+              </li>
+              <li>
+                <a href="https://www.paris-web.fr/2017/conferences/ameliorer-la-performance-entre-code-et-tricheries.php">Améliorer la Performance : entre réalité et perception</a>
+              </li>
+            </ul>
+            <p>Articles</p>
+            <ul>
+              <li>
+                <a href="https://web.dev/top-cwv-2023/">Our top Core Web Vitals recommendations for 2023</a>
+              </li>
+              <li>
+                <a href="https://medium.com/@lisadziuba/everything-you-need-to-know-about-loading-animations-10db7f9b61e">Everything you need to know about Loading Animations</a>
+              </li>
+              <li>
+                <a href="https://medium.com/@alpeshvalviwork/css-skeleton-screen-loading-effect-ec94dd5c6b25">CSS Skeleton Screen Loading Effect</a>
+              </li>
+            </ul>
           </div>
         </section>
-        <section data-background-color="rgb(19, 64, 116)">
-          <h2 style="color: #FFF;">Merci pour votre attention 👩‍💻👨‍💻 !<br><br>À la prochaine 👋</h2>
-          <p class="fragment" style="color: #FFF; padding-top: 25px;">
+        <section data-background-color="rgb(57,155,163)">
+          <h2 style="padding-top: 20px; color: #FFF; line-height: 1.4em;">Merci pour votre attention 👩‍💻👨‍💻 !<br>À la prochaine 👋</h2>
+          <p style="color: #FFF; padding-top: 25px;">
             Une question ?<br>
-            <a href="https://twitter.com/kaymorey">Twitter @kaymorey</a><br>
-            <a href="https://www.linkedin.com/in/katiamoreira/">Linkedin</a><br>
-            <a href="mailto:bonjour@katiamoreira.fr">bonjour@katiamoreira.fr</a><br><br>
-            <a href="https://cours-sass.vercel.app/">https://cours-sass.vercel.app/</a>
           </p>
+          <ul>
+            <li>
+              🐦
+              <a style="color: #FFF;" href="https://twitter.com/kaymorey">Twitter @kaymorey</a>
+            </li>
+            <li>
+              💼
+              <a style="color: #FFF;" href="https://www.linkedin.com/in/katiamoreira/">Linkedin</a>
+            </li>
+            <li>
+              📧
+              <a style="color: #FFF;" href="mailto:bonjour@katiamoreira.fr">bonjour@katiamoreira.fr</a>
+            </li>
+            <li>
+              👾 <span style="color: #FFF;">Retrouvez-moi sur discord</span>
+            </li>
+          </ul>
         </section>
         <!-- Montrer un exemple de fonction bullshit (genre x2)
         puis introduire les fonctions SASS

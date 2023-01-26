@@ -10,11 +10,11 @@
   --background-color: #FFF;
   --main-font: Poppins, Helvetica, sans-serif;
   --main-font-size: 37px;
-  --main-color: #134074;
+  --main-color: #145f65;
   --block-margin: 20px;
   --heading-margin: 0 0 20px 0;
   --heading-font: Poppins, Helvetica, sans-serif;
-  --heading-color: #134074;
+  --heading-color: #145f65;
   --heading-line-height: 1.2;
   --heading-letter-spacing: normal;
   --heading-text-transform: none;
@@ -26,8 +26,8 @@
   --heading3-size: 1em;
   --heading4-size: 0.7em;
   --code-font: monospace;
-  --link-color: #da6259;
-  --link-color-hover: #d13b2f;
+  --link-color: #399ba3;
+  --link-color-hover: #2c777d;
   --selection-background-color: #FF5E99;
   --selection-color: #fff; }
 
@@ -39,7 +39,7 @@
   font-family: "Poppins", Helvetica, sans-serif;
   font-size: 37px;
   font-weight: normal;
-  color: #134074; }
+  color: #145f65; }
 
 .reveal ::selection {
   color: #fff;
@@ -66,7 +66,7 @@
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #134074;
+  color: #145f65;
   font-family: "Poppins", Helvetica, sans-serif;
   font-weight: 700;
   line-height: 1.2;
@@ -242,45 +242,45 @@
  * LINKS
  *********************************************/
 .reveal a {
-  color: #da6259;
+  color: #399ba3;
   text-decoration: none;
   transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #d13b2f;
+  color: #2c777d;
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #bc342a; }
+  background: #25656a; }
 
 /*********************************************
  * Frame helper
  *********************************************/
 .reveal .r-frame {
-  border: 4px solid #134074;
+  border: 4px solid #145f65;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 
 .reveal a .r-frame {
   transition: all .15s linear; }
 
 .reveal a:hover .r-frame {
-  border-color: #da6259;
+  border-color: #399ba3;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls {
-  color: #da6259; }
+  color: #399ba3; }
 
 /*********************************************
  * PROGRESS BAR
  *********************************************/
 .reveal .progress {
   background: rgba(0, 0, 0, 0.2);
-  color: #da6259; }
+  color: #399ba3; }
 
 /*********************************************
  * PRINT BACKGROUND
@@ -298,7 +298,7 @@
     width: 60px;
     height: 6px;
     margin-top: 14px;
-    background-color: #da6259; }
+    background-color: #399ba3; }
 
 .reveal ol,
 .reveal dl,
@@ -315,7 +315,7 @@
     .reveal ol li::marker,
     .reveal dl li::marker,
     .reveal ul li::marker {
-      color: #da6259; }
+      color: #399ba3; }
   .reveal ol.is-block,
   .reveal dl.is-block,
   .reveal ul.is-block {
