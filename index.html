@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Rendre son site plus performant 🚀</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/custom.css" id="theme">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/styles/stackoverflow-light.css" id="highlight-theme">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background-color="rgb(57,155,163)" style="color: #FFF;">
+          <div style="padding-top: 0.8em; padding-bottom: 0.8em;">
+            <h1 style="color: #FFF;">Rendre son site plus performant 🚀</h1>
+            <img src="images/jogging.svg" alt="" width="400">
+          </div>
+          <p>
+            <small>Katia Moreira</small><br>
+            <small>MMI 2 - 01/03/2024</small><br>
+          </p>
+        </section>
+        <section>
+          <h3 class="header-title">Plan du cours</h3>
+
+          <ol>
+            <li>📏 La performance et comment la mesurer</li>
+            <li>📋 Les différentes métriques</li>
+            <li>💡 Comment améliorer les perfs</li>
+            <li>🧠 Entre réalité et perception</li>
+          </ol>
+        </section>
+        <section data-background-color="rgb(57,155,163)" class="full">
+          <h2 class="slide-title centered" style="color: #FFF;">1. La performance et comment la mesurer</h2>
+        </section>
+        <section>
+          <h3 class="header-title">La performance et comment la mesurer</h3>
+
+          <div>
+            <ul>
+              <li>Performance = <strong>rapidité</strong> avec laquelle votre site <strong>s'affiche</strong> 🚀</li>
+              <li>Performance 💻 <strong>front-end</strong> vs performance ⚙️ <strong>back-end</strong></li>
+            </ul>
+            <img src="images/frontend_backend.png" alt="" width="600">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">La performance et comment la mesurer</h3>
+
+          <div>
+            <ul>
+              <li>🎯 <strong>Objectif : </strong> faire en sorte que le site (ou une partie de celui-ci) s'affiche <strong>le plus rapidement</strong> possible</li>
+              <li>Pour améliorer la performance de son site il faut déjà commencer par la <strong>mesurer</strong></li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">La performance et comment la mesurer</h3>
+          <p style="font-size: 0.9em;"><strong>Les différents outils de mesure</strong></p>
+
+          <div style="padding-top: 50px;">
+            <ul>
+              <li><a href="https://pagespeed.web.dev/">PageSpeed Insights</a> : outil de performance proposé par Google (existe aussi en extension navigateur)</li>
+              <li><a href="https://www.webpagetest.org/">WebPageTest</a></li>
+              <li><a href="https://gtmetrix.com/">GTmetrix</a></li>
+              <li>Console navigateur</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">La performance et comment la mesurer</h3>
+          <p style="font-size: 0.9em;"><strong>Les différents outils de mesure : outils en ligne</strong></p>
+
+          <figure>
+            <img src="images/test-perfs.png" alt="" width="500">
+            <figcaption style="font-size: 0.42em;">Test de performance avec le site lemonde.fr sur PageSpeed Insights</figcaption>
+          </figure>
+
+          <aside class="notes">
+            tester le site sur les 3 outils
+          </aside>
+        </section>
+        <section>
+          <h3 class="header-title">La performance et comment la mesurer</h3>
+          <p style="font-size: 0.9em;"><strong>Les différents outils de mesure : outils en ligne</strong></p>
+
+          <ul>
+            <li><strong>Testez un site</strong> (par exemple lemonde.fr ou un site que vous avez développé) sur les différents outils de mesure</li>
+            <li>⚠️ Il faut que le site soit <strong>en ligne</strong> et pas sur votre local</li>
+            <li>Réalisez les tests sur <strong>3 onglets différents</strong> et laissez les <strong>ouverts</strong></li>
+          </ul>
+
+          <div class="d-flex align-center justify-center">
+            <a href="https://pagespeed.web.dev/" target="_blank">
+              <img src="images/pagespeed.svg" alt="pagespeed" width="150">
+            </a>
+            <a href="https://www.webpagetest.org/" target="_blank">
+              <img src="images/webpagetest.png" alt="webpagetest" width="350" style="padding-left: 50px;">
+            </a>
+            <a href="https://gtmetrix.com/" target="_blank">
+              <img src="images/gtmetrix.png" alt="gtmetrix">
+            </a>
+          </div>
+
+          <aside class="notes">
+            tester le site sur les 3 outils
+          </aside>
+        </section>
+        <section>
+          <h3 class="header-title">La performance et comment la mesurer</h3>
+          <p style="font-size: 0.9em;"><strong>Les différents outils de mesure : la console navigateur</strong></p>
+
+          <figure>
+            <img src="images/test-perf-console.png" alt="" width="600">
+            <figcaption style="font-size: 0.42em;">Test de performance avec le site lemonde.fr via l'onglet "Performance" de la console</figcaption>
+          </figure>
+
+          <aside class="notes">
+            tester le site dans l'onglet Performance, cocher Screenshots / captures d'écran et Web Vitals / signaux web
+            montrer également l'onglet réseau et le fait qu'il permet de voir le chargement des éléments / repérer un élément lourd
+            dans le sélecteur "No throttling" montrer qu'on peut changer la vitesse de connexion
+          </aside>
+        </section>
+        <section data-background-color="rgb(57,155,163)" class="full">
+          <h2 class="slide-title centered" style="color: #FFF;">2. Les différentes métriques</h2>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <ul>
+            <li>Se baser uniquement sur le <strong>temps de chargement global</strong> d'un site ne suffit pas</li>
+            <li>Les outils permettant de mesurer la performance d'un site utilisent <strong>différentes métriques</strong></li>
+            <li>Ce sont des <strong>indicateurs</strong> qui vous permettent de cibler les différents problèmes de performance de votre site</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>FCP - First Contentful Paint</h4>
+          <p><small>Temps avant l'apparition du premier élément</small></p>
+          <div>
+            <img src="images/fcp.png" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>FCP - First Contentful Paint</h4>
+          <p><small>Temps avant l'apparition du premier élément</small></p>
+          <ul>
+            <li>Cet indicateur est très important car il permet de faire <strong>patienter l'utilisateur</strong> en lui montrant que le site est en train de charger et que quelque chose <strong>est bien en train de se passer</strong></li>
+            <li>Il vaut mieux un site dont <strong>le premier élément</strong> s'affiche très <strong>rapidement</strong> même s'il se passe un peu de temps pour que toute la page charge plutôt qu'un site qui affiche longtemps une page <strong>complètement blanche</strong></li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>FCP - First Contentful Paint</h4>
+          <p><small>Temps avant l'apparition du premier élément</small></p>
+          <div>
+            <img src="images/fcp-score.svg" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>LCP - Largest Contentful Paint</h4>
+          <p><small>Temps avant l'apparition de l'élément le plus grand</small></p>
+          <div>
+            <img src="images/fcpvslcp2.png" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>LCP - Largest Contentful Paint</h4>
+          <p><small>Temps avant l'apparition de l'élément le plus grand</small></p>
+          <div>
+            <img src="images/fcpvslcp.png" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>LCP - Largest Contentful Paint</h4>
+          <ul>
+            <li>Le temps de chargement avant l'apparition du <strong>premier élément</strong> (FCP) n'est <strong>pas toujours pertinent</strong> (si le site affiche un loader par exemple)</li>
+            <li>Le but du LCP est de mesurer le temps de chargement du <strong>contenu principal</strong> de la page</li>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>LCP - Largest Contentful Paint</h4>
+          <p><small>Temps avant l'apparition de l'élément le plus grand</small></p>
+          <div>
+            <img src="images/lcp-score.svg" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>CLS - Cumulative Layout Shift</h4>
+          <p><small>Indicateur qui mesure le déplacement des éléments <br>de la page lors du chargement</small></p>
+          <div>
+            <img src="images/cls.png" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>CLS - Cumulative Layout Shift</h4>
+          <p><small>Indicateur qui mesure le déplacement des éléments <br>de la page lors du chargement</small></p>
+          <ul>
+            <li>Cet indicateur permet de mesurer la <strong>stabilité visuelle</strong> d'une page</li>
+            <li>Il permet également d'éviter des <strong>actions inattendues</strong> pour l'utilisateur</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>CLS - Cumulative Layout Shift</h4>
+          <div>
+            <video controls width="500">
+              <source src="videos/cls-demo.webm" type="video/webm">
+            </video>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>CLS - Cumulative Layout Shift</h4>
+          <p><small>Indicateur qui mesure le déplacement des éléments <br>de la page lors du chargement</small></p>
+          <div>
+            <img src="images/cls-score.svg" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>FID - First Input Delay</h4>
+          <p><small>Temps de réaction suite à la première interaction de l'utilisateur</small></p>
+          <div>
+            <img src="images/fid.png" alt="" width="680">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>FID - First Input Delay</h4>
+          <p><small>Temps de réaction suite à la première interaction de l'utilisateur</small></p>
+          <div>
+            <ul>
+              <li>La vitesse d'affichage d'une page <strong>ne suffit pas</strong> à évaluer sa performance</li>
+              <li>Un site étant <strong>interatif</strong> il est important de savoir quand l'utilisateur pourra <strong>commencer à interagir</strong> avec</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>FID - First Input Delay</h4>
+          <p><small>Temps de réaction suite à la première interaction de l'utilisateur</small></p>
+          <div>
+            <img src="images/fid-score.svg" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>Les Core Web Vitals</h4>
+          <p><small>Pris en compte dans les résultats de recherche Google depuis juin 2021</small></p>
+          <div>
+            <img src="images/core-web-vitals.png" width="700" alt="">
+          </div>
+          <aside class="notes">
+            “Core Web Vitals” est une initiative de Google, représentant un ensemble de mesures visant à quantifier l'expérience des sites web, et identifier des opportunités d'amélioration.
+            Utilisé par google pour le classement du site dans les résultats de recherche
+          </aside>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>Les Core Web Vitals</h4>
+          <div>
+            <img src="images/test-perf-console-vitals.png" width="700" alt="">
+          </div>
+        </section>
+        <section data-background-color="rgb(57,155,163)" class="full">
+          <h2 class="slide-title centered" style="color: #FFF;">3. Comment améliorer les perfs</h2>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Poids de la page HTML</strong></p>
+          <div>
+            <ul>
+              <li>Diminuer la <strong>taille du HTML</strong> de la page</li>
+              <li>Limiter la <strong>profondeur</strong> du DOM</li>
+              <li>Attention à certains frameworks/CMS qui <strong>génèrent</strong> le markup</li>
+            </ul>
+          </div>
+          <aside class="notes">
+            Montrer le site de de omie.fr
+          </aside>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Les fonts</strong></p>
+          <div>
+            <ul>
+              <li>
+                Utiliser <code data-trim>font-display: swap;</code>
+              </li>
+            </ul>
+            <pre><code data-trim>
+              @font-face {
+                font-family: 'EBGaramond';
+                src:
+                  url('/fonts/EBGaramond/EBGaramond-Regular.woff2') format('woff2'),
+                  url'/fonts/EBGaramond/EBGaramond-Regular.woff') format('woff');
+                font-style: normal;
+                font-weight: normal;
+                font-display: swap;
+              }
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <h4>Les fonts</h4>
+          <div>
+            <ul>
+              <li>
+                Utiliser <code data-trim>font-display: swap;</code> (FCP, LCP)
+              </li>
+            </ul>
+            <img src="images/swap.webp" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Les fonts</strong></p>
+          <ul>
+            <li>⚠️ Utiliser <code>font-display: swap;</code> peut améliorer vos indicateurs FCP et LCP mais créer des <strong>layout shifts</strong></li>
+            <li>Pensez à bien <strong>tester</strong> les conséquences du changement de font au cours du chargement</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Les ressoures tiers</strong></p>
+          <div>
+            <ul>
+              <li>Eviter de dépendre de serveurs tiers</li>
+              <li>Google Fonts, cdn</li>
+            </ul>
+            <br>
+            <img src="images/Google_Fonts.png" alt="" width="300">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Les ressoures tiers</strong></p>
+          <div>
+            <img src="images/jquery.png" alt="" width="470">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Code CSS et JS</strong></p>
+          <div>
+            <ul>
+              <li>Minifier le CSS et le JS</li>
+              <li>Ne pas charger de scripts inutiles</li>
+              <li>Utiliser <a href="https://www.npmjs.com/package/webpack-bundle-analyzer">webpack-bundle-analyzer</a></li>
+              <li>⚠️ Attention aux scripts de tracking</li>
+            </ul>
+          </div>
+          <aside class="notes">
+            Parler du fait qu'il vaut mieux diviser au maximum pour ne charger que ce qui est utile pour chaque page.
+            Et donc ce n'est pas forcément une bonne idée de n'avoir qu'un seul fichier JS minifié.
+            Ex si on a un formulaire de contact avec du JS.
+          </aside>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Async / Defer</strong></p>
+          <div>
+            <ul>
+              <li><strong>defer</strong> : ne <strong>pas bloquer</strong> le rendu HTML lors du chargement du script (bon pour le FCP)</li>
+              <li><strong>async</strong> : charger les fichiers JS de façon <strong>asynchrone</strong> (⚠️ ne respecte pas l'ordre d'inclusion des scripts)</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Async / Defer</strong></p>
+          <pre><code data-trim>
+            <script src="script.js" defer></script>
+
+            <script src="script.js" async></script>
+          </code></pre>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Optimiser les images</strong></p>
+          <div>
+            <ul>
+              <li>Faire attention aux dimensions de l'image</li>
+              <li class="fragment">Utiliser des responsive image</li>
+              <li class="fragment">
+                  Utiliser le bon format d'image
+                  <ul>
+                    <li>JPG pour les photos</li>
+                    <li>PNG pour les applats de couleur (type logo) ou images avec transparence</li>
+                    <li>SVG pour les images qui peuvent être décrites mathématiquement et affichées en différentes tailles</li>
+                  </ul>
+              </li>
+              <li class="fragment">
+                Utiliser un compresseur d'image
+                <ul>
+                  <li>mozjpeg</li>
+                  <li><a href="https://tinypng.com/">tinypng</a></li>
+                  <li><a href="https://jakearchibald.github.io/svgomg/">SVGO</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Optimiser les images</strong></p>
+          <div>
+            <ul>
+              <li>
+                Faire du lazyloading
+                <pre><code class="html" data-trim>
+                  <img src="image.jpg" loading="lazy" alt="">
+                </code></pre>
+              </li>
+              <li>
+                Indiquer la <code>width</code> et la <code>height</code> des images ou son <code>aspect-ratio</code> (pour le CLS)
+                <pre><code class="css" data-trim>
+                  img {
+                    aspect-ratio: 16/9;
+                  }
+                </code></pre>
+              </li>
+            </ul>
+          </div>
+          <aside class="notes">
+            Lazyloading : autrefois en JS, charge l'image quand on arrive à son niveau en scrollant
+          </aside>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Optimiser les images</strong></p>
+          <video controls width="800">
+            <source src="videos/cls-demo-images.webm" type="video/webm">
+          </video>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <ul>
+            <li>On a vu <strong>plusieurs techniques</strong> pour améliorer la vitesse de chargement de votre page</li>
+            <li>Un dernier élément qui est très important : les différents indicateurs de google se basent sur la partie <strong>visible</strong> de votre site lors du chargement</li>
+            <li>Il convient donc surtout d'optimiser les éléments en <strong>haut de page : above the fold</strong></li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Above the fold</strong></p>
+          <div>
+            <img src="images/above-the-fold.jpeg" alt="" width="750">
+          </div>
+        </section>
+        <section class="full" data-background-color="rgb(57,155,163)" class="full">
+          <div class="centered">
+            <h2 style="color: #FFF;">C'est l'heure de l'exercice 🤓</h2>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Exercice 🤓</h3>
+          <p>
+            <strong>Objectif : trouver les corrections à effectuer pour améliorer les performances d'un site HTML/CSS</strong>
+          </p>
+
+          <p><a href="https://github.com/kaymorey/html-template">Télécharger le code source du site</a></p>
+          <p>Vous pouvez trouver <strong>8 améliorations</strong> à faire</p>
+        </section>
+        <section>
+          <h3 class="header-title">Exercice 🤓</h3>
+          <p>
+            <strong>Objectif : trouver les corrections à effectuer pour améliorer les performances d'un site HTML/CSS</strong>
+          </p>
+          <ol style="font-size: 1.58rem;">
+            <li>Ne pas utiliser la font depuis Google Fonts mais utiliser font-face (ne pas oublier le font-display: swap)</li>
+            <li>On est un peu obligés de conserver le chargement de font awesome ici mais on peut utiliser async ou defer</li>
+            <li>Minifier les fichiers CSS</li>
+            <li>L'image hotel-mer.jpg est beaucoup trop grande, il faut la redimensionner</li>
+            <li>Idem pour l'image fort.jpg</li>
+            <li>Utiliser du svg pour l'image du logo</li>
+            <li>Utiliser la version jpg de l'image au-coeur-eau</li>
+            <li>Supprimer l'inclusion de jquery qui est inutile</li>
+          </ol>
+        </section>
+        <section data-background-color="rgb(57,155,163)" class="full">
+          <h2 class="slide-title centered" style="color: #FFF;">4. Entre réalité et perception</h2>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>La performance de votre site est cruciale</strong></p>
+          <ul>
+            <li><strong>53%</strong> des utilisateur·rice·s abandonnent un site qui met plus de 3 secondes à se charger sur mobile</li>
+            <li class="fragment">La <strong>capacité d'attention</strong> d'un être humain est passée de 12 secondes en 2000 à <strong>8 secondes</strong> en 2015 (c'est 9 pour un poisson rouge 🐟)</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>La notion de temps</strong></p>
+          <ul>
+            <li>🕒 Le temps <strong>objectif</strong> (la mesure du temps en secondes, minutes etc)</li>
+            <li>🧠 Le temps <strong>psychologique</strong> (le temps ressenti)</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>La notion de temps</strong></p>
+          <div>
+            <img src="images/perception-temps.png" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>Sur le web</strong></p>
+          <ul>
+            <li>Entre <strong>0 et 100ms</strong> : immédiat, délai non ressenti</li>
+            <li><strong>100ms</strong> : temps maximum de réaction à une interaction (FID)</li>
+            <li><strong>2 secondes</strong> : temps au bout duquel il doit se passer quelque chose (FCP)</li>
+            <li><strong>2 à 5 secondes</strong> : temps de chargement optimal</li>
+            <li><strong>5 à 10 secondes</strong> : risque de distraction et donc de perdre l'utilisateur</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>📈 La perception n'est pas linéaire</strong></p>
+          <ul>
+            <li>Type et complexité de la tâche</li>
+            <li>Expérience sur des tâches similaires</li>
+            <li>Disposition de l'utilisateur·rice (fatigue, stress...)</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>🎮 Les facteurs sur lesquels on peut jouer</strong></p>
+          <ul>
+            <li>Stimulation (indices qui rappelent l'attente)</li>
+            <li>Durée (réelle ou ressentie)</li>
+            <li>Attention (occupation du cerveau à une tâche ou une autre)</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>Comment améliorer la perception de l'attente ?</strong></p>
+          <div>
+            <ul>
+              <li>🕒 Améliorer le temps objectif ✅</li>
+              <li>⌛ Donner des indicateurs d'attente</li>
+              <li>🕹️ Détourner l'attention</li>
+              <li>🪄 Mentir à l'utilisateur·rice</li>
+            </ul>
+          </div>
+          <aside class="notes">
+            Indicateurs : Fournir une indication adaptée au type d’attente.
+            Détourner l'attention : Occuper la personne à une autre tâche que celle de l’attente.
+            Mentir : Lui faire croire qu’elle n’a pas besoin d’attendre
+          </aside>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>🚀 Les réponses immédiates</strong></p>
+          <div>
+            <ul>
+              <li>Survol, focus d'un élément</li>
+              <li>Action instantanée traitée en JS</li>
+            </ul>
+          </div>
+          <video controls>
+            <source src="videos/copy.mov" type="video/mp4">
+          </video>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>⏲️ Indiquer l'attente</strong></p>
+          <div>
+            <ul>
+              <li>Le spinner</li>
+              <li>La barre de chargement</li>
+              <li>Les faux contenus</li>
+              <li>Les mots</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>Le spinner, pour une attente courte</strong></p>
+          <img src="images/spinner.gif" alt="" width="150">
+          <div>
+            <ul>
+              <li>Idéal entre <strong>2 et 8 secondes</strong></li>
+              <li>Ne pas afficher de spinner <strong>en dessous de 2 secondes</strong></li>
+              <li>Au delà de 8 secondes l’utilisateur·rice <br><strong>perd sa capacité d’attention</strong></li>
+            </ul>
+          </div>
+          <aside class="notes">
+            En dessous de 2 secondes, impression de bug visuel
+          </aside>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>Des spinners originaux, pour une attente plus longue</strong></p>
+          <img src="images/original-spinner.jpeg" alt="" width="200">
+          <img src="images/original-spinner2.gif" alt="" width="200">
+          <div>
+            <ul>
+              <li>Un effet original et travaillé peut <br><strong>intriguer ou amuser</strong> l’utilisateur·rice</li>
+              <li>Permet <strong>d’augmenter un peu</strong> <br>le délai d’attente sans décourager</li>
+            </ul>
+          </div>
+          <aside class="notes">
+            En dessous de 2 secondes, impression de bug visuel
+          </aside>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>Des spinners originaux, pour une attente plus longue</strong></p>
+          <img src="images/loading-cat.gif" alt="" width="400">
+          <img src="images/infinity.gif" alt="" width="400">
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>La barre de chargement, pour une attente quantifiable</strong></p>
+          <img src="images/loading.gif" alt="" width="400">
+          <div>
+            <ul>
+              <li>Le traitement risque de durer <strong>plus de 8 secondes</strong></li>
+              <li>La durée ou le nombre d'items à traiter est <strong>mesurable</strong></li>
+              <li>On peut y ajouter une <strong>indication de pourcentage</strong></li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>La barre de chargement, pour une attente quantifiable</strong></p>
+          <img src="images/loading-gmail.gif" alt="" width="300">
+          <img src="images/original-loading.gif" alt="" width="300"><br>
+          <img src="images/percentage-loading.gif" alt="" width="300">
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>Un indicateur proche</strong></p>
+          <ul>
+            <li>Pour qu’un indicateur ait du sens, il doit être <strong>proche</strong> de la zone activée par l’utilisateur·rice. </li>
+          </ul>
+          <video controls width="500">
+            <source src="videos/loading-btn.mp4" type="video/mp4">
+          </video>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>Les faux contenus ou le Skeleton screen</strong></p>
+          <img src="images/skeleton.webp" alt="" width="500">
+          <div>
+            <ul>
+              <li>Permet de fournir du contenu au <strong>compte-gouttes</strong></li>
+              <li>Le faux contenu peut servir à<br>
+                l’utilisateur·rice à se <strong>projeter</strong> et faciliter la<br>
+                phase de découverte</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>Les faux contenus ou le Skeleton screen</strong></p>
+          <img src="images/skeleton-slack.webp" alt="" width="800">
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>Les faux contenus ou le Skeleton screen</strong></p>
+          <video controls width="650">
+            <source src="videos/figma-loading.mp4" type="video/mp4">
+          </video>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>Expliquer pourquoi l'utilisateur doit attendre</strong></p>
+          <ul>
+            <li>Permet d’être <strong>explicite</strong> sur le processus</li>
+            <li>Donner des chiffres sert <strong>d’estimatif</strong> du temps restant</li>
+            <li>Permet de donner de la <strong>lecture</strong></li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>Expliquer pourquoi l'utilisateur doit attendre</strong></p>
+          <img src="images/loading-words.gif" alt="" width="600">
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>Détourner l'attention de l'attente</strong></p>
+          <ul>
+            <li>L'attente passe de passive à <strong>active</strong></li>
+            <li>Action <strong>ludique, amusante ou utile</strong></li>
+          </ul>
+          <img src="images/trex-chrome-game.png" alt="" width="600">
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>Détourner l'attention de l'attente</strong></p>
+          <img src="images/youtube.jpeg" alt="" width="750">
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>Mentir sur le temps d'attente</strong></p>
+          <ul>
+            <li>Fake it until you make it</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="header-title">Entre réalité et perception</h3>
+          <p style="font-size: 0.9em;"><strong>Mentir sur le temps d'attente</strong></p>
+          <video controls width="750">
+            <source src="videos/twitter.mov" type="video/mp4">
+          </video>
+        </section>
+        <section>
+          <h3 class="header-title">Liens utiles</h3>
+
+          <div>
+            <p>Conférences</p>
+            <ul>
+              <li>
+                <a href="https://www.paris-web.fr/2019/conferences/performance-il-se-passe-quoi-apres-le-backend.php">Performance : il se passe quoi après le backend ?</a>
+              </li>
+              <li>
+                <a href="https://www.paris-web.fr/2017/conferences/ameliorer-la-performance-entre-code-et-tricheries.php">Améliorer la Performance : entre réalité et perception</a>
+              </li>
+            </ul>
+            <p>Articles</p>
+            <ul>
+              <li>
+                <a href="https://web.dev/top-cwv-2023/">Our top Core Web Vitals recommendations for 2023</a>
+              </li>
+              <li>
+                <a href="https://medium.com/@lisadziuba/everything-you-need-to-know-about-loading-animations-10db7f9b61e">Everything you need to know about Loading Animations</a>
+              </li>
+              <li>
+                <a href="https://medium.com/@alpeshvalviwork/css-skeleton-screen-loading-effect-ec94dd5c6b25">CSS Skeleton Screen Loading Effect</a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section data-background-color="rgb(57,155,163)">
+          <h2 style="padding-top: 20px; color: #FFF; line-height: 1.4em;">Merci pour votre attention 👩‍💻👨‍💻 !</h2>
+          <p style="color: #FFF; padding-top: 25px;">
+            Une question ?<br>
+          </p>
+          <ul>
+            <li>
+              🐦
+              <a style="color: #FFF;" href="https://twitter.com/kaymorey">Twitter @kaymorey</a>
+            </li>
+            <li>
+              💼
+              <a style="color: #FFF;" href="https://www.linkedin.com/in/katiamoreira/">Linkedin</a>
+            </li>
+            <li>
+              📧
+              <a style="color: #FFF;" href="mailto:bonjour@katiamoreira.fr">bonjour@katiamoreira.fr</a>
+            </li>
+            <li>
+              👾 <span style="color: #FFF;">Retrouvez-moi sur discord</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+      });
+    </script>
+  </body>
+</html>
