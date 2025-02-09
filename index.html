@@ -23,7 +23,7 @@
           </div>
           <p>
             <small>Katia Moreira</small><br>
-            <small>MMI 2 - 01/03/2024</small><br>
+            <small>MMI 2 - 13/02/2024</small><br>
           </p>
         </section>
         <section>
@@ -35,6 +35,10 @@
             <li>💡 Comment améliorer les perfs</li>
             <li>🧠 Entre réalité et perception</li>
           </ol>
+        </section>
+        <section>
+          <h3 class="header-title">On avance sur la roadmap</h3>
+          <img src="images/roadmap.png" alt="" width="370">
         </section>
         <section data-background-color="rgb(57,155,163)" class="full">
           <h2 class="slide-title centered" style="color: #FFF;">1. La performance et comment la mesurer</h2>
@@ -49,6 +53,25 @@
             </ul>
             <img src="images/frontend_backend.png" alt="" width="600">
           </div>
+        </section>
+        <section>
+          <h3 class="header-title">La performance et comment la mesurer</h3>
+          <h4>Pourquoi améliorer la performance de son site ?</h4>
+
+          <div>
+            <ul>
+              <li>👤 Améliorer <strong>l'expérience utilisateur</strong> et diminuer le taux de rebond</li>
+              <li>👌 Optimiser le <strong>réferéncement</strong> de son site</li>
+              <li>📱 Assurer la <strong>compatibilité</strong> de son site sur différents appareils et pour différentes vitesses de connexion</li>
+              <li>📉 Consommer <strong>moins de ressources</strong></li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">La performance et comment la mesurer</h3>
+          <h4>Pourquoi améliorer la performance de son site ?</h4>
+
+          <p>➡️ Un site <strong>lent</strong> est un site que les utilisateurs vont <strong>quitter</strong> rapidement</p>
         </section>
         <section>
           <h3 class="header-title">La performance et comment la mesurer</h3>
@@ -199,7 +222,7 @@
           <h4>CLS - Cumulative Layout Shift</h4>
           <p><small>Indicateur qui mesure le déplacement des éléments <br>de la page lors du chargement</small></p>
           <div>
-            <img src="images/cls.png" alt="">
+            <img src="images/cls.png" alt="" width="650">
           </div>
         </section>
         <section>
@@ -257,10 +280,39 @@
         </section>
         <section>
           <h3 class="header-title">Les différentes métriques</h3>
+          <h4>INP - Interaction to Next Paint</h4>
+          <p><small>Délai entre une interaction et le moment où la page affiche une réponse</small></p>
+          <div>
+            <ul>
+              <li>Une interaction = un <strong>clic</strong>, un <strong>touch</strong>, un appui sur une <strong>touche de clavier</strong></li>
+              <li>Evalue la réactivité globale d'une page</li>
+            </ul>
+          </div>
+          <video controls>
+            <source src="videos/demo-inp.mp4" type="video/mp4">
+          </video>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>INP - Interaction to Next Paint</h4>
+          <p><small>Délai entre une interaction et le moment où la page affiche une réponse</small></p>
+          <div>
+            <img src="images/inp-score.svg" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
+          <h4>FID vs INP</h4>
+          <div>
+            <img src="images/inpvsfid.png" width="700" alt="">
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Les différentes métriques</h3>
           <h4>Les Core Web Vitals</h4>
           <p><small>Pris en compte dans les résultats de recherche Google depuis juin 2021</small></p>
           <div>
-            <img src="images/core-web-vitals.png" width="700" alt="">
+            <img src="images/core-web-vitals.png" width="800" alt="">
           </div>
           <aside class="notes">
             “Core Web Vitals” est une initiative de Google, représentant un ensemble de mesures visant à quantifier l'expérience des sites web, et identifier des opportunités d'amélioration.
@@ -279,7 +331,7 @@
         </section>
         <section>
           <h3 class="header-title">Comment améliorer les perfs</h3>
-          <p style="font-size: 0.9em;"><strong>Poids de la page HTML</strong></p>
+          <p style="font-size: 0.9em;"><strong>Code HTML</strong></p>
           <div>
             <ul>
               <li>Diminuer la <strong>taille du HTML</strong> de la page</li>
@@ -290,6 +342,35 @@
           <aside class="notes">
             Montrer le site de de omie.fr
           </aside>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Code HTML</strong></p>
+          <img src="images/dom-lighthouse.png" alt="">
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Les fonts</strong></p>
+          <p style="font-size: 0.85em;">On dispose de 2 stratégies pour gérer l'apparition des fonts</p>
+          <div>
+            <ul>
+              <li><strong>FOIT</strong> (Flash of Invisible Text) : Le texte reste <strong>invisible</strong> tant que la police personnalisée n'est pas chargée.</li>
+              <li><strong>FOUT</strong> (Flash of Unstyled Text) : Le texte s'affiche avec une <strong>police de secours</strong> (fallback) avant d’être remplacé par la police personnalisée.</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Les fonts</strong></p>
+          <img src="images/foit-fout.png" alt="" width="700">
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Les fonts</strong></p>
+          <ul>
+            <li>➡️ On préfèrera la stratégie <strong>FOUT</strong> afin d'aficher du contenu au plus tôt</li>
+            <li>Cela permettra d'améliorer les scores des indicateurs <strong>FCP</strong> et <strong>LCP</strong></li>
+          </ul>
         </section>
         <section>
           <h3 class="header-title">Comment améliorer les perfs</h3>
@@ -319,7 +400,7 @@
           <div>
             <ul>
               <li>
-                Utiliser <code data-trim>font-display: swap;</code> (FCP, LCP)
+                Utiliser <code data-trim>font-display: swap;</code>
               </li>
             </ul>
             <img src="images/swap.webp" alt="">
@@ -329,8 +410,8 @@
           <h3 class="header-title">Comment améliorer les perfs</h3>
           <p style="font-size: 0.9em;"><strong>Les fonts</strong></p>
           <ul>
-            <li>⚠️ Utiliser <code>font-display: swap;</code> peut améliorer vos indicateurs FCP et LCP mais créer des <strong>layout shifts</strong></li>
-            <li>Pensez à bien <strong>tester</strong> les conséquences du changement de font au cours du chargement</li>
+            <li>⚠️ Utiliser <code>font-display: swap;</code> peut améliorer vos indicateurs FCP et LCP mais créer des <strong>layout shifts</strong> (et donc augmenter le score de l'indicateur CLS) </li>
+            <li>Pensez à bien <strong>tester</strong> les conséquences du changement de font au cours du chargement et à choisir une poilce de <strong>fallback</strong> proche de la police finale.</li>
           </ul>
         </section>
         <section>
