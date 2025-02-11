@@ -435,13 +435,24 @@
         </section>
         <section>
           <h3 class="header-title">Comment améliorer les perfs</h3>
-          <p style="font-size: 0.9em;"><strong>Code CSS et JS</strong></p>
+          <p style="font-size: 0.9em;"><strong>Code CSS</strong></p>
           <div>
             <ul>
-              <li>Minifier le CSS et le JS</li>
-              <li>Ne pas charger de scripts inutiles</li>
-              <li>Utiliser <a href="https://www.npmjs.com/package/webpack-bundle-analyzer">webpack-bundle-analyzer</a></li>
-              <li>⚠️ Attention aux scripts de tracking</li>
+              <li><strong>Minifier</strong> le code (utiliser un outil en ligne, un plugin PostCSS, un builder comme Vite)</li>
+              <li>Supprimer le <strong>code inutile</strong> avec <a href="https://purgecss.com/">PurgeCSS</a> (en outil seul ou comme plugin)</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Code JS</strong></p>
+          <div>
+            <ul>
+              <li><strong>Minifier</strong> le code (utiliser un outil en ligne, un plugin PostCSS, un builder comme Vite)</li>
+              <li>Ne pas charger de <strong>scripts inutiles</strong></li>
+              <li>N'importer que ce qui est <strong>nécessaire</strong> et supprimer le <strong>code mort</strong> (tree shaking)</li>
+              <li>⚠️ Attention aux scripts de <strong>tracking</strong> type pixel tracker</li>
+              <li>Charger les scripts de manière optimisée avec <strong>async et defer</strong></li>
             </ul>
           </div>
           <aside class="notes">
@@ -472,60 +483,105 @@
         <section>
           <h3 class="header-title">Comment améliorer les perfs</h3>
           <p style="font-size: 0.9em;"><strong>Optimiser les images</strong></p>
+          <p style="font-size: 0.85em;"><strong>Faire attention aux dimensions de l'image</strong></p>
           <div>
             <ul>
-              <li>Faire attention aux dimensions de l'image</li>
-              <li class="fragment">Utiliser des responsive image</li>
-              <li class="fragment">
-                  Utiliser le bon format d'image
-                  <ul>
-                    <li>JPG pour les photos</li>
-                    <li>PNG pour les applats de couleur (type logo) ou images avec transparence</li>
-                    <li>SVG pour les images qui peuvent être décrites mathématiquement et affichées en différentes tailles</li>
-                  </ul>
-              </li>
-              <li class="fragment">
-                Utiliser un compresseur d'image
-                <ul>
-                  <li>mozjpeg</li>
-                  <li><a href="https://tinypng.com/">tinypng</a></li>
-                  <li><a href="https://jakearchibald.github.io/svgomg/">SVGO</a></li>
-                </ul>
-              </li>
+              <li>Rien ne sert de charger une image de 3000px si elle prends 400px sur votre site</li>
+              <li>Attention toutefois aux écran retina</li>
             </ul>
           </div>
         </section>
         <section>
           <h3 class="header-title">Comment améliorer les perfs</h3>
           <p style="font-size: 0.9em;"><strong>Optimiser les images</strong></p>
+          <p style="font-size: 0.85em;"><strong>Utiliser des responsive img</strong></p>
+          <pre><code class="html" data-trim>
+            <img src="mon-image.jpg"
+              srcset="mon-image-320.jpg 320w,
+                      mon-image-640.jpg 640w"
+              alt="">
+          </code></pre>
+          <p style="font-size: 0.8em;">📌 Le fonctionnement des attributs srcset et sizes n'est pas toujours évident à comprendre. <br>Voici un <a href="https://www.alsacreations.com/article/lire/1621-responsive-images-srcset.html">article</a> qui l'explique très bien.</p>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Optimiser les images</strong></p>
+          <p style="font-size: 0.85em;"><strong>Utiliser le bon format d'image</strong></p>
           <div>
             <ul>
-              <li>
-                Faire du lazyloading
-                <pre><code class="html" data-trim>
-                  <img src="image.jpg" loading="lazy" alt="">
-                </code></pre>
-              </li>
-              <li>
-                Indiquer la <code>width</code> et la <code>height</code> des images ou son <code>aspect-ratio</code> (pour le CLS)
-                <pre><code class="css" data-trim>
-                  img {
-                    aspect-ratio: 16/9;
-                  }
-                </code></pre>
-              </li>
+              <li><strong>JPG</strong> pour les <strong>photos</strong></li>
+              <li><strong>PNG</strong> pour les <strong>applats de couleur</strong> (type logo) ou <strong>images avec transparence</strong></li>
+              <li><strong>SVG</strong> pour les images qui peuvent être décrites <strong>mathématiquement</strong> et affichées en différentes tailles</li>
+              <li><strong>WebP</strong> de manière générale</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Optimiser les images</strong></p>
+          <p style="font-size: 0.85em;"><strong>Utiliser un compresseur d'image</strong></p>
+          <div>
+            <ul>
+              <li>Via un outil ou un bundler comme <strong>Vite</strong></li>
+              <li><strong>En ligne</strong> avec <a href="https://tinypng.com/">tinypng</a></li>
+              <li>Pour les <strong>SVG</strong> avec <a href="https://jakearchibald.github.io/svgomg/">SVGO</a></li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Optimiser les images</strong></p>
+          <p style="font-size: 0.85em;"><strong>Faire du lazyloading</strong></p>
+          <div>
+            <ul>
+              <li>⚠️ A éviter pour les images en haut de page</li>
+            </ul>
+          </div>
+          <pre><code class="html" data-trim>
+            <img src="image.jpg" loading="lazy" alt="">
+          </code></pre>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Optimiser les images</strong></p>
+          <p style="font-size: 0.85em;"><strong>Spécifier la taille de vos images pour éviter les layout shifts</strong></p>
+          <div>
+            <ul>
+              <li>Indiquer la <strong>width et la height</strong> de l'image</li>
+              <li>Utiliser <strong>aspect-ratio</strong> pour indiquer son ratio</li>
+            </ul>
+          </div>
+          <pre><code class="css" data-trim>
+            img {
+              aspect-ratio: 16/9;
+            }
+          </code></pre>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Optimiser les images</strong></p>
+          <p style="font-size: 0.85em;"><strong>Spécifier la taille de vos images pour éviter les layout shifts</strong></p>
+          <video controls width="800">
+            <source src="videos/cls-demo-images.webm" type="video/webm">
+          </video>
+        </section>
+        <section>
+          <h3 class="header-title">Comment améliorer les perfs</h3>
+          <p style="font-size: 0.9em;"><strong>Optimiser les images</strong></p>
+          <p style="font-size: 0.85em;"><strong>✍ En résumé</strong></p>
+          <div>
+            <ul>
+              <li>Faire attention aux <strong>dimensions</strong> de l'image</li>
+              <li>Utiliser le <strong>bon format</strong> d'image</li>
+              <li>Utiliser des <strong>responsive img</strong></li>
+              <li>Utiliser un <strong>compresseur</strong> d'image</li>
+              <li>Faire du <strong>lazyloading</strong></li>
+              <li>Spécifier la <strong>taille</strong> de vos images</li>
             </ul>
           </div>
           <aside class="notes">
             Lazyloading : autrefois en JS, charge l'image quand on arrive à son niveau en scrollant
           </aside>
-        </section>
-        <section>
-          <h3 class="header-title">Comment améliorer les perfs</h3>
-          <p style="font-size: 0.9em;"><strong>Optimiser les images</strong></p>
-          <video controls width="800">
-            <source src="videos/cls-demo-images.webm" type="video/webm">
-          </video>
         </section>
         <section>
           <h3 class="header-title">Comment améliorer les perfs</h3>
